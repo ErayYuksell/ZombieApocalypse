@@ -1,14 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{FC970059-38C1-82B4-0AD7-A4D216780C74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{84471074-F4E9-CF72-3EE1-FB259A0987A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-
+		{FC970059-38C1-82B4-0AD7-A4D216780C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC970059-38C1-82B4-0AD7-A4D216780C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC970059-38C1-82B4-0AD7-A4D216780C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC970059-38C1-82B4-0AD7-A4D216780C74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84471074-F4E9-CF72-3EE1-FB259A0987A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84471074-F4E9-CF72-3EE1-FB259A0987A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84471074-F4E9-CF72-3EE1-FB259A0987A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84471074-F4E9-CF72-3EE1-FB259A0987A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
