@@ -909,6 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementModule:
+    canMove: 1
     xLeftValue: -4
     xRightValue: 4
     playerSpeed: 4
@@ -921,6 +922,9 @@ MonoBehaviour:
     powerScale: 0.001
     objectPool: {fileID: 0}
     firePoint: {fileID: 1098429824544746178}
+    canFire: 1
+  playerDamageModule:
+    bounceTime: 0.6
 --- !u!95 &-5815201184083094241
 Animator:
   serializedVersion: 5
@@ -2403,7 +2407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5719434286586257830, guid: ae78a4cce96a16f4faafd9f8a015f9bf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.377
+      value: 0.389
       objectReference: {fileID: 0}
     - target: {fileID: 5719434286586257830, guid: ae78a4cce96a16f4faafd9f8a015f9bf, type: 3}
       propertyPath: m_LocalRotation.w

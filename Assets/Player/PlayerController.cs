@@ -5,17 +5,20 @@ using System.Diagnostics.Contracts;
 using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
     public MovementModule movementModule;
     public GateModule gateModule;
     public FireModule fireModule;
+    public PLayerDamageModule playerDamageModule;
     void Start()
     {
         movementModule.Init(this);
         gateModule.Init(this);
         fireModule.Init(this);
+        playerDamageModule.Init(this);
 
         StartCoroutine(fireModule.SetFire());
     }
@@ -26,15 +29,21 @@ public class PlayerController : MonoBehaviour
         movementModule.PlayerMovement();
 
     }
+
+    public void StartFireCaroutine()
+    {
+        StartCoroutine(fireModule.SetFire());
+    }
+
     [Serializable]
     public class MovementModule
     {
         PlayerController playerController;
         float xSpeed;
-        bool canMove = true;
+        public bool canMove = true;
         public float xLeftValue = -4;
         public float xRightValue = 4;
-        [Range(1, 4)] public float playerSpeed = 4;
+        [Range(0, 4)] public float playerSpeed = 4;
         public void Init(PlayerController playerController)
         {
             this.playerController = playerController;
@@ -109,7 +118,7 @@ public class PlayerController : MonoBehaviour
         [Space]
         public GameObject objectPool;
         public Transform firePoint;
-        bool canFire = true;
+        public bool canFire = true;
         public void Init(PlayerController playerController)
         {
             this.playerController = playerController;
@@ -128,7 +137,28 @@ public class PlayerController : MonoBehaviour
 
 
     }
+    [Serializable]
+    public class PLayerDamageModule
+    {
+        PlayerController playerController;
+        [Range(0.2f, 1)] public float bounceTime = 0.5f;
+        public void Init(PlayerController playerController)
+        {
+            this.playerController = playerController;
+        }
 
+        public void BouncedPlayer()
+        {
+            playerController.movementModule.canMove = false;
+            playerController.fireModule.canFire = false;
+            playerController.transform.DOMoveZ(playerController.transform.position.z - 2, bounceTime).OnComplete(() =>
+            {
+                playerController.movementModule.canMove = true;
+                playerController.fireModule.canFire = true;
+                playerController.StartFireCaroutine();
+            });
+        }
+    }
 
 }
 
