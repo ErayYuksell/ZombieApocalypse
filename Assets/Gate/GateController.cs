@@ -9,17 +9,24 @@ public class GateController : MonoBehaviour
 {
     public GateType gateType;
     [SerializeField] TextMeshProUGUI gateText;
-    [SerializeField] int gateValue;
-    void Start()
-    {
-        ChangeGateType();
-    }
+    [SerializeField] float gateValue;
+    [Space]
+    Animator animator;
+    [SerializeField] AnimationClip clip;
 
+    private void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
+    private void Update()
+    {
+        ChangeGateTypeAndValue();
+    }
     void WriteGateText(GateType gateType)
     {
         gateText.text = gateValue.ToString() + " " + gateType.ToString();
     }
-    void ChangeGateType()
+    void ChangeGateTypeAndValue()
     {
         switch (gateType)
         {
@@ -42,8 +49,17 @@ public class GateController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             var playerController = other.GetComponent<PlayerController>();
-            playerController.gateModule.AdjustFireSkills(gateType);
+            playerController.gateModule.AdjustFireSkills(gateType, gateValue);
             gameObject.SetActive(false);
         }
+    }
+
+    public void IncreaseGateValue()
+    {
+        gateValue++;
+    }
+    public void PLayHitAnim()
+    {
+        animator.Play(clip.name);
     }
 }

@@ -58,6 +58,8 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Bullet\ObjectPool\ObjectPool.cs" />
+    <Compile Include="Assets\Bullet\BulletController.cs" />
     <Compile Include="Assets\Gate\GateController.cs" />
     <Compile Include="Assets\Player\PlayerController.cs" />
   </ItemGroup>
