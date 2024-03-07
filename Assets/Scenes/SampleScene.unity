@@ -1979,6 +1979,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1486347002}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1551638786
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1728942017704508676, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: dyingclip
+      value: 
+      objectReference: {fileID: 7400000, guid: 79f66cf6f5c84294292ff8a3e088cc6e, type: 2}
+    - target: {fileID: 1728942017704508676, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: zombieValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728942017704508676, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: attackedClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 336c1200b6855df44904f3fcbfa683d8, type: 2}
+    - target: {fileID: 2323191016941014957, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323191016941014957, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323191016941014957, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.7691364
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323191016941014957, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323191016941014957, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323191016941014957, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323191016941014957, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323191016941014957, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323191016941014957, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323191016941014957, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6084700238111012876, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
+      propertyPath: m_Name
+      value: WomanZombie
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee52a338391b9a94cb39b02030857aee, type: 3}
 --- !u!1 &1664017055
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,6 +2367,10 @@ PrefabInstance:
       propertyPath: fireModule.objectPool
       value: 
       objectReference: {fileID: 1073771176}
+    - target: {fileID: 589094219501059646, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
+      propertyPath: movementModule.playerSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1140637350569654720, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2424,3 +2497,4 @@ SceneRoots:
   - {fileID: 1402898623}
   - {fileID: 6178926694964849935}
   - {fileID: 265635860401119407}
+  - {fileID: 1551638786}

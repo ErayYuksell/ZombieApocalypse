@@ -50,5 +50,11 @@ public class BulletController : MonoBehaviour
         //    obstacleController.DestroyObstacle();
         //    obstacleController.PlayObstacleHitAnim();
         //}
+        if (other.CompareTag("Zombie"))
+        {
+            gameObject.SetActive(false);
+            var zombieController = other.GetComponent<ZombieController>();
+            zombieController.ShootZombieCounter();
+        }
     }
 }
