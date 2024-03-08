@@ -17,6 +17,7 @@ public class ZombieController : MonoBehaviour
     //[SerializeField] AnimationClip dyingclip;
     //[SerializeField] AnimationClip attackedClip;
     BoxCollider myCollider;
+    [SerializeField] int bounceValue;
 
     public ZombieType zombieType;
     private void Start()
@@ -74,6 +75,22 @@ public class ZombieController : MonoBehaviour
                 break;
         }
     }
+    public int ChoosePLayerBouncePower()
+    {
+        switch (zombieType)
+        {
+            case ZombieType.womanZombie:
+                bounceValue = 3;
+                break;
+            case ZombieType.copZombie:
+                bounceValue = 4;
+                break;
+            case ZombieType.yakuzaZombie:
+                bounceValue = 5;
+                break;
+        }
+        return bounceValue;
+    }
     public void ShootZombieCounter() //ZombieDeath icin farkli
     {
         zombieShootCount++;
@@ -95,7 +112,7 @@ public class ZombieController : MonoBehaviour
             //animator.Play(attackedClip.name);
             ChooseZombieAttackingAnim();
             var playerController = other.GetComponent<PlayerController>();
-            playerController.playerDamageModule.BouncedPlayer();
+            playerController.playerDamageModule.BouncedPlayer(ChoosePLayerBouncePower());
         }
     }
 }

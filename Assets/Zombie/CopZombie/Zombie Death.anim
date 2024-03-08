@@ -51667,7 +51667,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 3
+    m_StopTime: 2.966667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -102153,7 +102153,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 3
+  - time: 2.4666667
     functionName: DestroyZombie
     data: 
     objectReferenceParameter: {fileID: 590576100124873815, guid: 6ebbfc52cc6d93f47b477e08ec5c135f, type: 3}

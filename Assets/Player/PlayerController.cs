@@ -147,11 +147,11 @@ public class PlayerController : MonoBehaviour
             this.playerController = playerController;
         }
 
-        public void BouncedPlayer()
+        public void BouncedPlayer(int value = 2)
         {
             playerController.movementModule.canMove = false;
             playerController.fireModule.canFire = false;
-            playerController.transform.DOMoveZ(playerController.transform.position.z - 2, bounceTime).OnComplete(() =>
+            playerController.transform.DOMoveZ(playerController.transform.position.z - value, bounceTime).OnComplete(() =>
             {
                 playerController.movementModule.canMove = true;
                 playerController.fireModule.canFire = true;
