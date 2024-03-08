@@ -13,12 +13,14 @@ public class PlayerController : MonoBehaviour
     public GateModule gateModule;
     public FireModule fireModule;
     public PLayerDamageModule playerDamageModule;
+
     void Start()
     {
         movementModule.Init(this);
         gateModule.Init(this);
         fireModule.Init(this);
         playerDamageModule.Init(this);
+
 
         StartCoroutine(fireModule.SetFire());
     }

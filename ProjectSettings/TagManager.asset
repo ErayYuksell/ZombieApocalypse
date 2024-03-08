@@ -7,6 +7,7 @@ TagManager:
   - Gate
   - Obstacle
   - Zombie
+  - Antibody
   layers:
   - Default
   - TransparentFX
