@@ -1,9 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 public enum ZombieType { womanZombie, copZombie, yakuzaZombie }
+
+[Serializable]
+public class Zombie
+{
+    public AnimationClip dyingclip;
+    public AnimationClip attackedClip;
+    public int bounceValue;
+}
 public class ZombieController : MonoBehaviour
 {
     bool canZombieMove = true;
@@ -11,15 +20,13 @@ public class ZombieController : MonoBehaviour
     [SerializeField, Range(3, 10)] int zombieValue = 3;
     [SerializeField] int zombieShootCount = 0;
     Animator animator;
-    [Space]
-    [SerializeField] AnimationClip[] dyingclips;
-    [SerializeField] AnimationClip[] attackedClips;
-    //[SerializeField] AnimationClip dyingclip;
-    //[SerializeField] AnimationClip attackedClip;
     BoxCollider myCollider;
-    [SerializeField] int bounceValue;
-
+    int bounceValue;
+    [Space]
     public ZombieType zombieType;
+    [Space]
+    public List<Zombie> zombieList = new List<Zombie>();
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -46,13 +53,13 @@ public class ZombieController : MonoBehaviour
         switch (zombieType)
         {
             case ZombieType.womanZombie:
-                animator.Play(dyingclips[0].name);
+                animator.Play(zombieList[0].dyingclip.name);
                 break;
             case ZombieType.copZombie:
-                animator.Play(dyingclips[1].name);
+                animator.Play(zombieList[1].dyingclip.name);
                 break;
             case ZombieType.yakuzaZombie:
-                animator.Play(dyingclips[2].name);
+                animator.Play(zombieList[2].dyingclip.name);
                 break;
             default:
                 break;
@@ -63,13 +70,13 @@ public class ZombieController : MonoBehaviour
         switch (zombieType)
         {
             case ZombieType.womanZombie:
-                animator.Play(attackedClips[0].name);
+                animator.Play(zombieList[0].attackedClip.name);
                 break;
             case ZombieType.copZombie:
-                animator.Play(attackedClips[1].name);
+                animator.Play(zombieList[1].attackedClip.name);
                 break;
             case ZombieType.yakuzaZombie:
-                animator.Play(attackedClips[2].name);
+                animator.Play(zombieList[2].attackedClip.name);
                 break;
             default:
                 break;
@@ -80,17 +87,19 @@ public class ZombieController : MonoBehaviour
         switch (zombieType)
         {
             case ZombieType.womanZombie:
-                bounceValue = 3;
+                bounceValue = zombieList[0].bounceValue;
                 break;
             case ZombieType.copZombie:
-                bounceValue = 4;
+                bounceValue = zombieList[1].bounceValue;
                 break;
             case ZombieType.yakuzaZombie:
-                bounceValue = 5;
+                bounceValue = zombieList[2].bounceValue;
                 break;
         }
         return bounceValue;
     }
+
+  
     public void ShootZombieCounter() //ZombieDeath icin farkli
     {
         zombieShootCount++;
@@ -99,8 +108,8 @@ public class ZombieController : MonoBehaviour
         {
             canZombieMove = false;
             myCollider.enabled = false;
-            //animator.Play(dyingclip.name);
             ChooseZombieDyingAnim();
+
         }
     }
     private void OnTriggerEnter(Collider other) // ZombieAttack icin farkli
@@ -109,7 +118,6 @@ public class ZombieController : MonoBehaviour
         {
             canZombieMove = false;
             myCollider.enabled = false;
-            //animator.Play(attackedClip.name);
             ChooseZombieAttackingAnim();
             var playerController = other.GetComponent<PlayerController>();
             playerController.playerDamageModule.BouncedPlayer(ChoosePLayerBouncePower());
