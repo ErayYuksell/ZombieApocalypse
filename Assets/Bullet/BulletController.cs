@@ -56,5 +56,12 @@ public class BulletController : MonoBehaviour
             var zombieController = other.GetComponent<ZombieController>();
             zombieController.ShootZombieCounter();
         }
+        if (other.CompareTag("BreakableWall"))
+        {
+            gameObject.SetActive(false);
+            var breakableController = other.GetComponent<BreakableWallController>();
+            //breakableController.WriteWallText();
+            breakableController.PartsMovement();
+        }
     }
 }

@@ -65,6 +65,7 @@
     <Compile Include="Assets\Gate\GateController.cs" />
     <Compile Include="Assets\Box\MedicineBoxController.cs" />
     <Compile Include="Assets\Player\PlayerController.cs" />
+    <Compile Include="Assets\Wall\BreakableWallController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -894,7 +894,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!95 &-5815201184083094241
 Animator:
@@ -946,8 +946,6 @@ MonoBehaviour:
     canFire: 1
   playerDamageModule:
     bounceTime: 0.6
-  takeMedicineModule:
-    antibody: {fileID: 0}
 --- !u!1 &2766588423484101148
 GameObject:
   m_ObjectHideFlags: 0
