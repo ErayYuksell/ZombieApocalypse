@@ -119,15 +119,17 @@ MonoBehaviour:
   zombieSpeed: 2
   zombieValue: 3
   zombieShootCount: 0
-  bounceValue: 0
   zombieType: 0
   zombieList:
-  - dyingclip: {fileID: 7400000, guid: 79f66cf6f5c84294292ff8a3e088cc6e, type: 2}
+  - zombieType: 0
+    dyingclip: {fileID: 7400000, guid: 79f66cf6f5c84294292ff8a3e088cc6e, type: 2}
     attackedClip: {fileID: 7400000, guid: 336c1200b6855df44904f3fcbfa683d8, type: 2}
     bounceValue: 3
-  - dyingclip: {fileID: 7400000, guid: 9380362755f15e643b41cec8557888d1, type: 2}
+  - zombieType: 1
+    dyingclip: {fileID: 7400000, guid: 9380362755f15e643b41cec8557888d1, type: 2}
     attackedClip: {fileID: 7400000, guid: 215b58ec658815a42999a96adf158cac, type: 2}
     bounceValue: 4
-  - dyingclip: {fileID: 7400000, guid: 8c0c7a513beb8c74eafb247a775d3d6d, type: 2}
+  - zombieType: 2
+    dyingclip: {fileID: 7400000, guid: 8c0c7a513beb8c74eafb247a775d3d6d, type: 2}
     attackedClip: {fileID: 7400000, guid: b56054ed7e2e43b4b8b761199c5d90a5, type: 2}
     bounceValue: 5

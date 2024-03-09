@@ -9,6 +9,7 @@ public enum ZombieType { womanZombie, copZombie, yakuzaZombie }
 [Serializable]
 public class Zombie
 {
+    public ZombieType zombieType;
     public AnimationClip dyingclip;
     public AnimationClip attackedClip;
     public int bounceValue;
@@ -50,56 +51,25 @@ public class ZombieController : MonoBehaviour
     }
     public void ChooseZombieDyingAnim()
     {
-        switch (zombieType)
-        {
-            case ZombieType.womanZombie:
-                animator.Play(zombieList[0].dyingclip.name);
-                break;
-            case ZombieType.copZombie:
-                animator.Play(zombieList[1].dyingclip.name);
-                break;
-            case ZombieType.yakuzaZombie:
-                animator.Play(zombieList[2].dyingclip.name);
-                break;
-            default:
-                break;
-        }
+        var zombieClass = GetZombieClass(zombieType);
+        animator.Play(zombieClass.dyingclip.name);
     }
     public void ChooseZombieAttackingAnim()
     {
-        switch (zombieType)
-        {
-            case ZombieType.womanZombie:
-                animator.Play(zombieList[0].attackedClip.name);
-                break;
-            case ZombieType.copZombie:
-                animator.Play(zombieList[1].attackedClip.name);
-                break;
-            case ZombieType.yakuzaZombie:
-                animator.Play(zombieList[2].attackedClip.name);
-                break;
-            default:
-                break;
-        }
+        var zombieClass = GetZombieClass(zombieType);
+        animator.Play(zombieClass.attackedClip.name);
     }
     public int ChoosePLayerBouncePower()
     {
-        switch (zombieType)
-        {
-            case ZombieType.womanZombie:
-                bounceValue = zombieList[0].bounceValue;
-                break;
-            case ZombieType.copZombie:
-                bounceValue = zombieList[1].bounceValue;
-                break;
-            case ZombieType.yakuzaZombie:
-                bounceValue = zombieList[2].bounceValue;
-                break;
-        }
-        return bounceValue;
+        var zombieClass = GetZombieClass(zombieType);
+        return zombieClass.bounceValue;
     }
-
-  
+    public Zombie GetZombieClass(ZombieType type)
+    // enumdan secili olan zombie type ina bakarak o zombi tipini listedeki classlar arasindan bulacak ve o classtan isleme devam edicek
+    {
+        return zombieList.Find((zombie) => zombie.zombieType == type); // classlar arasindan Find fonksiyonu kullanarak istenilen tiptekini buluyoruz
+    }
+   
     public void ShootZombieCounter() //ZombieDeath icin farkli
     {
         zombieShootCount++;
