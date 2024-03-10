@@ -539,6 +539,10 @@ MonoBehaviour:
   gateText: {fileID: 3467192006100091882}
   gateValue: 2
   clip: {fileID: 7400000, guid: 9fb82d5762826004d8e5df7c17ba9c68, type: 2}
+  gateGlass: {fileID: 7065398564903017059}
+  gateMat:
+  - {fileID: 2100000, guid: 8f6bdb61a872333468d5b60f48ff03c6, type: 2}
+  - {fileID: 2100000, guid: c2ae273d26b27194da28db5e01b66514, type: 2}
 --- !u!1 &8147795972957568410
 GameObject:
   m_ObjectHideFlags: 0

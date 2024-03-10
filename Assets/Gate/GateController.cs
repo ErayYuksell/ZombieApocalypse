@@ -10,21 +10,38 @@ public class GateController : MonoBehaviour
     public GateType gateType;
     [SerializeField] TextMeshProUGUI gateText;
     [SerializeField] float gateValue;
-    [Space]
     Animator animator;
+    [Space]
     [SerializeField] AnimationClip clip;
+    [Space]
+    [SerializeField] GameObject gateGlass;
+    Renderer gateGlassRenderer;
+    [SerializeField] Material[] gateMat;
 
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        gateGlassRenderer = gateGlass.GetComponent<Renderer>();
     }
     private void Update()
     {
         ChangeGateTypeAndValue();
+        ChangeGateColor();
     }
     void WriteGateText(GateType gateType)
     {
         gateText.text = gateValue.ToString() + " " + gateType.ToString();
+    }
+    void ChangeGateColor()
+    {
+        if (gateValue <= 0)
+        {
+            gateGlassRenderer.material = gateMat[0];
+        }
+        else
+        {
+            gateGlassRenderer.material = gateMat[1];
+        }
     }
     void ChangeGateTypeAndValue()
     {

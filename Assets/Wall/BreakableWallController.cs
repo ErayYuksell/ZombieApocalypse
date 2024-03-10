@@ -24,8 +24,8 @@ public class BreakableWallController : MonoBehaviour
             return;
         }
         var part = wallParts[Random.Range(0, wallParts.Count)];
-
         wallParts.Remove(part);
+
         part.transform.DOJump(new Vector3(part.transform.position.x + Random.Range(-1, 1), 0, part.transform.position.z + Random.Range(-2, 2)), 2, 1, 1).OnComplete(() =>
         {
             WriteWallText();
