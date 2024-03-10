@@ -91,10 +91,10 @@ public class PlayerController : MonoBehaviour
             switch (gateType)
             {
                 case GateType.Range:
-                    playerController.fireModule.rate += playerController.fireModule.rateScale * gateValue;
+                    playerController.fireModule.range += playerController.fireModule.rateScale * gateValue;
                     break;
                 case GateType.Rate:
-                    playerController.fireModule.range += playerController.fireModule.rangeScale * gateValue;
+                    playerController.fireModule.rate -= playerController.fireModule.rangeScale * gateValue;
                     break;
                 case GateType.Power:
                     playerController.fireModule.power += playerController.fireModule.powerScale * gateValue;
@@ -110,9 +110,9 @@ public class PlayerController : MonoBehaviour
     {
         PlayerController playerController;
 
-        [Range(0.4f, 1)] public float rate = 0.4f;
-        [Range(10, 20)] public float range = 15;
-        [Range(1, 2)] public float power;
+        [Range(0.2f, 1)] public float rate = 0.4f;
+        [Range(8, 20)] public float range = 15;
+        [Range(0.8f, 2)] public float power;
         [Space]
         public float rateScale;
         public float rangeScale;
@@ -136,7 +136,10 @@ public class PlayerController : MonoBehaviour
                 yield return new WaitForSeconds(rate);
             }
         }
-
+        public void SetFireRate(float value)
+        {
+            rate += value;
+        }
 
     }
     [Serializable]

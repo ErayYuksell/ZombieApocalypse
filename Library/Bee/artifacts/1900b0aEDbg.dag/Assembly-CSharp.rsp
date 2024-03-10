@@ -364,6 +364,7 @@
 "Assets/Box/MedicineBoxController.cs"
 "Assets/Bullet/BulletController.cs"
 "Assets/Bullet/ObjectPool/ObjectPool.cs"
+"Assets/FinishLevel/FinishLevelController.cs"
 "Assets/Gate/GateController.cs"
 "Assets/Obstacle/ObstacleController.cs"
 "Assets/Player/PlayerController.cs"

@@ -10,6 +10,7 @@ public class ObstacleController : MonoBehaviour
     //[SerializeField] AnimationClip clip;
     //[SerializeField, Range(3, 14)] int obstacleValue = 3;
     //[SerializeField] int obstacleCount = 0;
+    [SerializeField] float obstacleValue = 0.05f;
     private void Start()
     {
         //animator = GetComponent<Animator>();
@@ -20,6 +21,7 @@ public class ObstacleController : MonoBehaviour
         {
             var playerController = other.GetComponent<PlayerController>();
             playerController.playerDamageModule.BouncedPlayer();
+            playerController.fireModule.SetFireRate(obstacleValue);
             gameObject.SetActive(false);
         }
     }
