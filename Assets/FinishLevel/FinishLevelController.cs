@@ -8,7 +8,7 @@ public class FinishLevelController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
+            GameManager.Instance.GoToTheNextLevel();
         }
     }
 }
