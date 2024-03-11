@@ -59,11 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Zombie\ZombieController.cs" />
+    <Compile Include="Assets\EndGameSection\EndGameSectionController.cs" />
     <Compile Include="Assets\Bullet\ObjectPool\ObjectPool.cs" />
     <Compile Include="Assets\Obstacle\ObstacleController.cs" />
     <Compile Include="Assets\Bullet\BulletController.cs" />
     <Compile Include="Assets\Gate\GateController.cs" />
-    <Compile Include="Assets\FinishLevel\FinishLevelController.cs" />
     <Compile Include="Assets\Box\MedicineBoxController.cs" />
     <Compile Include="Assets\GameManager\GameManager.cs" />
     <Compile Include="Assets\Player\PlayerController.cs" />
