@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-   
+
     private void Start()
     {
         //StopTheTime();
@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+
+        if (GetLevelIndex() > 0)
+        {
+            //LoadSavedLevel();
         }
     }
     // butun fonksiyonlardaki default degerleri 0 yaptim sikinti olursa ilk leveldan devam
@@ -46,10 +51,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(value);
     }
-    public void LoadSavedLevel()
-    {
-        int levelIndex = GetLevelIndex();
-        LoadScene(levelIndex);
-    }
+    //public void LoadSavedLevel()
+    //{
+    //    int levelIndex = GetLevelIndex();
+    //    LoadScene(levelIndex);
+    //}
 
 }

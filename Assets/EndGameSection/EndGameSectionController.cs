@@ -8,7 +8,9 @@ public class EndGameSectionController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.GoToTheNextLevel();
+            //GameManager.Instance.GoToTheNextLevel();
+            var playerController = other.GetComponent<PlayerController>();
+            playerController.endSectionModule.PlayerEndSectionMovement();
         }
     }
 }

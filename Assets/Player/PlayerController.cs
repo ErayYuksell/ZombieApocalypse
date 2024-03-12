@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public GateModule gateModule;
     public FireModule fireModule;
     public PLayerDamageModule playerDamageModule;
+    public EndSectionModule endSectionModule;
+
+    Animator animator;
+    GameObject m16RIfle;
 
     void Start()
     {
@@ -20,7 +24,10 @@ public class PlayerController : MonoBehaviour
         gateModule.Init(this);
         fireModule.Init(this);
         playerDamageModule.Init(this);
+        endSectionModule.Init(this);
 
+        animator = GetComponent<Animator>();
+        m16RIfle = transform.Find("M16RIfle").gameObject;
 
         StartCoroutine(fireModule.SetFire());
     }
@@ -164,6 +171,30 @@ public class PlayerController : MonoBehaviour
             });
         }
     }
+    [Serializable]
+    public class EndSectionModule
+    {
+        PlayerController playerController;
+        public AnimationClip walkAnim;
+        public AnimationClip victoryAnim;
+        public float walkDistance = 7;
+        public float walkingTime = 4;
+        public void Init(PlayerController playerController)
+        {
+            this.playerController = playerController;
+        }
 
+        public void PlayerEndSectionMovement()
+        {
+            playerController.movementModule.canMove = false;
+            playerController.fireModule.canFire = false;
+            playerController.m16RIfle.SetActive(false);
+            playerController.animator.Play(walkAnim.name);
+            playerController.transform.DOMoveZ(playerController.transform.position.z + walkDistance, walkingTime).OnComplete(()=>
+            {
+                playerController.animator.Play(victoryAnim.name);
+            });
+        }
+    }
 }
 
