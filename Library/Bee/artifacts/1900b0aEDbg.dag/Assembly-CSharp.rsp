@@ -370,6 +370,7 @@
 "Assets/Gate/GateController.cs"
 "Assets/Obstacle/ObstacleController.cs"
 "Assets/Player/PlayerController.cs"
+"Assets/UIAssets/UIManager.cs"
 "Assets/Wall/BreakableWallController.cs"
 "Assets/Zombie/ZombieController.cs"
 -langversion:9.0

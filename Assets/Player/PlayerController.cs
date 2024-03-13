@@ -147,6 +147,15 @@ public class PlayerController : MonoBehaviour
         {
             rate += value;
         }
+        public void CloseTheAllBullet()
+        {
+            var objectPoolScript = objectPool.GetComponent<ObjectPool>();
+
+            foreach (var item in objectPoolScript.queue)
+            {
+                item.SetActive(false);
+            }
+        }
 
     }
     [Serializable]
@@ -186,13 +195,18 @@ public class PlayerController : MonoBehaviour
 
         public void PlayerEndSectionMovement()
         {
+            playerController.fireModule.CloseTheAllBullet();
             playerController.movementModule.canMove = false;
             playerController.fireModule.canFire = false;
+
             playerController.m16RIfle.SetActive(false);
+
             playerController.animator.Play(walkAnim.name);
-            playerController.transform.DOMoveZ(playerController.transform.position.z + walkDistance, walkingTime).OnComplete(()=>
+
+            playerController.transform.DOMove(new Vector3(0, playerController.transform.position.y, playerController.transform.position.z + walkDistance), walkingTime).OnComplete(() =>
             {
                 playerController.animator.Play(victoryAnim.name);
+                UIManager.Instance.OpenEndGamePanel();
             });
         }
     }

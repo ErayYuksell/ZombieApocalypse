@@ -11,7 +11,6 @@ public class EndGameSectionController : MonoBehaviour
         {
             if (control) return;
             control = true;
-            GameManager.Instance.GoToTheNextLevel();
             var playerController = other.GetComponent<PlayerController>();
             playerController.endSectionModule.PlayerEndSectionMovement();
         }

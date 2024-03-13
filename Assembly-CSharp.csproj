@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Zombie\ZombieController.cs" />
     <Compile Include="Assets\EndGameSection\EndGameSectionController.cs" />
+    <Compile Include="Assets\UIAssets\UIManager.cs" />
     <Compile Include="Assets\Bullet\ObjectPool\ObjectPool.cs" />
     <Compile Include="Assets\Obstacle\ObstacleController.cs" />
     <Compile Include="Assets\Bullet\BulletController.cs" />

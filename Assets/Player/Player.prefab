@@ -950,7 +950,7 @@ MonoBehaviour:
     walkAnim: {fileID: 7400000, guid: b4811699d69e10a4d87ac88b0e1ee6c0, type: 2}
     victoryAnim: {fileID: 7400000, guid: be25ef759bb13ba46bf41f9b9892933a, type: 2}
     walkDistance: 9
-    walkingTime: 4
+    walkingTime: 3.5
 --- !u!1 &2766588423484101148
 GameObject:
   m_ObjectHideFlags: 0
