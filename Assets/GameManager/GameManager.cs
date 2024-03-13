@@ -6,17 +6,17 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    // gameManageri her levela koydugun icin sonsuz donguye girip oyun cokuyordu zaten dontDestroyOnLoad ile calisiyor bir kere oyun basladiginda 
+    // olusturulan obje her level icin kalicak unutma 
 
-    private void Start()
-    {
-        //StopTheTime();
-    }
     void StopTheTime()
     {
         Time.timeScale = 0;
     }
     private void Awake()
     {
+        StopTheTime();
+
         if (Instance == null)
         {
             Instance = this;
@@ -29,8 +29,10 @@ public class GameManager : MonoBehaviour
 
         if (GetLevelIndex() > 0)
         {
-            //LoadSavedLevel();
+            LoadSavedLevel();
         }
+
+
     }
     // butun fonksiyonlardaki default degerleri 0 yaptim sikinti olursa ilk leveldan devam
     public void SaveLevelIndex(int value = 0)
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
     }
     public int GetLevelIndex()
     {
+        var num = PlayerPrefs.GetInt("LevelIndex", 0);
         return PlayerPrefs.GetInt("LevelIndex", 0);
     }
     public void GoToTheNextLevel()
@@ -51,10 +54,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(value);
     }
-    //public void LoadSavedLevel()
-    //{
-    //    int levelIndex = GetLevelIndex();
-    //    LoadScene(levelIndex);
-    //}
+    public void LoadSavedLevel()
+    {
+        int levelIndex = GetLevelIndex();
+        LoadScene(levelIndex);
+    }
 
 }
