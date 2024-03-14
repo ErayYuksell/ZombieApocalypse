@@ -1391,7 +1391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 95.36
+      value: 101.12
       objectReference: {fileID: 0}
     - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1506,7 +1506,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0c4c1077e166bb145b5bdfaff82335f8, type: 2}
+  - {fileID: 2100000, guid: d78d7d8156cd7f44eb2faca9074e3cc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2692,11 +2692,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9063428090174604249, guid: 501be7b1101c2b042b03fe5b8732bd3f, type: 3}
   m_PrefabInstance: {fileID: 990396491}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2058864954 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6332847338999851995, guid: a5ffdd61c74c75749a6fd41c2eee4efe, type: 3}
-  m_PrefabInstance: {fileID: 3058158073535497978}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2093699007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1140637350569654720, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
@@ -2970,14 +2965,6 @@ PrefabInstance:
       propertyPath: fireModule.objectPool
       value: 
       objectReference: {fileID: 1073771176}
-    - target: {fileID: 589094219501059646, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
-      propertyPath: movementModule.playerSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 589094219501059646, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
-      propertyPath: takeMedicineModule.antibody
-      value: 
-      objectReference: {fileID: 2058864954}
     - target: {fileID: 1140637350569654720, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3224,7 +3211,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4963613407636546824, guid: 4d52730e612ab314d876adde7a298823, type: 3}
       propertyPath: m_Name
-      value: LevelFinish
+      value: EndGameSection
       objectReference: {fileID: 0}
     - target: {fileID: 7882928478061658263, guid: 4d52730e612ab314d876adde7a298823, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3266,8 +3253,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2960962124557663962, guid: 4d52730e612ab314d876adde7a298823, type: 3}
+    - target: {fileID: 8445878937729407666, guid: 4d52730e612ab314d876adde7a298823, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.00025
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445878937729407666, guid: 4d52730e612ab314d876adde7a298823, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.00025
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445878937729407666, guid: 4d52730e612ab314d876adde7a298823, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.00025
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
