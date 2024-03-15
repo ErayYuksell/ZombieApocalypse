@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
     }
     public int GetLevelIndex()
     {
-        var num = PlayerPrefs.GetInt("LevelIndex", 0);
         return PlayerPrefs.GetInt("LevelIndex", 0);
     }
     public void GoToTheNextLevel()
