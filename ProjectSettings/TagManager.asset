@@ -9,6 +9,7 @@ TagManager:
   - Zombie
   - Antibody
   - BreakableWall
+  - CureProgressPanel
   layers:
   - Default
   - TransparentFX

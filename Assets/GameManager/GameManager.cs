@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     // gameManageri her levela koydugun icin sonsuz donguye girip oyun cokuyordu zaten dontDestroyOnLoad ile calisiyor bir kere oyun basladiginda 
     // olusturulan obje her level icin kalicak unutma 
+    // GameManager EndGameSectionController UIManager sadece ilk levelda olmali unutma !!!!!!!!!!!!!
 
     void StopTheTime()
     {

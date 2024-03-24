@@ -71,7 +71,7 @@ public class EndGameSectionController : MonoBehaviour
         {
             var index = PlayerPrefs.GetInt("obj" + i);
             intList.Add(index);
-            Debug.Log(index);
+            //Debug.Log(index);
 
             var obj = labRoomListFalse[index];
             obj.SetActive(true);

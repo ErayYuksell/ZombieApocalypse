@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject startPanel;
     [SerializeField] GameObject endGamePanel;
-
+    [SerializeField] GameObject cureProgressPanel;
+   
+   
     private void Awake()
     {
         //IsTheStartPanelOpen();
@@ -28,6 +31,7 @@ public class UIManager : MonoBehaviour
     public void CloseStartPanel() // button icinde calisiyor 
     {
         Time.timeScale = 1.0f;
+        cureProgressPanel.SetActive(true);
         startPanel.SetActive(false);
     }
     public void OpenEndGamePanel()

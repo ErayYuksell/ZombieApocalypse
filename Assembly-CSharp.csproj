@@ -65,6 +65,7 @@
     <Compile Include="Assets\Obstacle\ObstacleController.cs" />
     <Compile Include="Assets\Bullet\BulletController.cs" />
     <Compile Include="Assets\Gate\GateController.cs" />
+    <Compile Include="Assets\UIAssets\CureProgressController.cs" />
     <Compile Include="Assets\Box\MedicineBoxController.cs" />
     <Compile Include="Assets\GameManager\GameManager.cs" />
     <Compile Include="Assets\Player\PlayerController.cs" />

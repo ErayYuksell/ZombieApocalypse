@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class Zombie
     public AnimationClip dyingclip;
     public AnimationClip attackedClip;
     public int bounceValue;
+    public int antiBodyNumber;
 }
 public class ZombieController : MonoBehaviour
 {
@@ -22,16 +24,21 @@ public class ZombieController : MonoBehaviour
     [SerializeField] int zombieShootCount = 0;
     Animator animator;
     BoxCollider myCollider;
-    int bounceValue;
     [Space]
     public ZombieType zombieType;
     [Space]
     public List<Zombie> zombieList = new List<Zombie>();
+    [Space]
+    public AntiBodyDropModule antiBodyDropModule;
 
     private void Start()
     {
+        antiBodyDropModule.Init(this);
+
         animator = GetComponent<Animator>();
         myCollider = GetComponent<BoxCollider>();
+
+        antiBodyDropModule.CreateAntiBody();
     }
     private void Update()
     {
@@ -53,6 +60,7 @@ public class ZombieController : MonoBehaviour
     {
         var zombieClass = GetZombieClass(zombieType);
         animator.Play(zombieClass.dyingclip.name);
+        antiBodyDropModule.GetAntiBody();
     }
     public void ChooseZombieAttackingAnim()
     {
@@ -69,7 +77,7 @@ public class ZombieController : MonoBehaviour
     {
         return zombieList.Find((zombie) => zombie.zombieType == type); // classlar arasindan Find fonksiyonu kullanarak istenilen tiptekini buluyoruz
     }
-   
+
     public void ShootZombieCounter() //ZombieDeath icin farkli
     {
         zombieShootCount++;
@@ -93,4 +101,43 @@ public class ZombieController : MonoBehaviour
             playerController.playerDamageModule.BouncedPlayer(ChoosePLayerBouncePower());
         }
     }
+
+    [Serializable]
+    public class AntiBodyDropModule
+    {
+        ZombieController zombieController;
+        public GameObject antiBody;
+        public float cureSliderValue;
+        public List<GameObject> antiBodyList = new List<GameObject>();
+        public void Init(ZombieController zombieController)
+        {
+            this.zombieController = zombieController;
+        }
+
+        public void CreateAntiBody() // starttta hangi zombinin kac antikoru varsa uret set activlerini kapat 
+        {
+            var zombieClass = zombieController.GetZombieClass(zombieController.zombieType);
+
+            for (int i = 0; i < zombieClass.antiBodyNumber; i++)
+            {
+                var obj = Instantiate(antiBody, zombieController.transform);
+                obj.transform.position = zombieController.transform.position;
+                obj.SetActive(false);
+                antiBodyList.Add(obj);
+            }
+        }
+        // antibodyleri ac ve hareketlerini sagla daha sonra kapa ????
+        public void GetAntiBody()
+        {
+            foreach (var item in antiBodyList)
+            {
+                item.SetActive(true);
+                item.transform.DOJump(new Vector3(item.transform.position.x + UnityEngine.Random.Range(-1.5f, 1.5f), item.transform.position.y + 0.28f, item.transform.position.z + UnityEngine.Random.Range(-1.5f, 1.5f)), 2, 1, 1).OnComplete(() =>
+                {
+                    FindObjectOfType<CureProgressController>().CureSliderIncrease(cureSliderValue);
+                });
+            }
+        }
+    }
+
 }
