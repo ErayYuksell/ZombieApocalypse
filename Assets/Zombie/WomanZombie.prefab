@@ -2499,6 +2499,10 @@ PrefabInstance:
       propertyPath: zombieValue
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4708427073687892276, guid: 1c10ac8a6f7075d4a83c287e0e640f22, type: 3}
+      propertyPath: antiBodyDropModule.cureSliderValue
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8582519246349708783, guid: 1c10ac8a6f7075d4a83c287e0e640f22, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
