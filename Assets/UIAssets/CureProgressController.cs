@@ -18,9 +18,10 @@ public class CureProgressController : MonoBehaviour
     public void CureSliderIncrease(float increaseValue)
     {
         slider.fillAmount += increaseValue;
+        recordedCureSliderValue += slider.fillAmount; // bu deger en son beherglass da artacak olan cure sivisininin miktarini belirleyecek
+
         if (slider.fillAmount >= 0.99f)
         {
-            recordedCureSliderValue += slider.fillAmount; // bu deger en son beherglass da artacak olan cure sivisininin miktarini belirleyecek
             slider.fillAmount = 0;
             WriteMultipleText();
         }

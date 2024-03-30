@@ -9,7 +9,9 @@ public class EndGameSectionController : MonoBehaviour
     [SerializeField] List<GameObject> labRoomListFalse = new List<GameObject>();
     [SerializeField] List<int> intList = new List<int>();
     //[SerializeField] List<GameObject> labRoomListTrue = new List<GameObject>();
-
+    [SerializeField] GameObject cureBottle;
+    Renderer cureBottleRenderer;
+    Shader liquidShadder;
     private void Awake()
     {
         GetActiveSelfTrue();
@@ -43,6 +45,7 @@ public class EndGameSectionController : MonoBehaviour
             ActivatingRandomLabStuff();
             var playerController = other.GetComponent<PlayerController>();
             playerController.endSectionModule.PlayerEndSectionMovement();
+            IncreaseCureBottleAmount();
         }
     }
     public void SaveActiveSelfTrue(int objIndex)
@@ -79,4 +82,14 @@ public class EndGameSectionController : MonoBehaviour
         }
     }
 
+
+    public void IncreaseCureBottleAmount()
+    {
+        cureBottleRenderer = cureBottle.GetComponentInChildren<Renderer>();
+        liquidShadder = cureBottleRenderer.material.shader;
+        
+       
+       
+
+    }
 }
