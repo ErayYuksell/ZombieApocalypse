@@ -29,9 +29,8 @@ public class MedicineBoxController : MonoBehaviour
     }
     public void AntibodyMovement()
     {
-        //cureProgressController.CureSliderIncrease();
-
-        FindObjectOfType<CureProgressController>().CureSliderIncrease(cureSliderValue);
+      
+        EndGameSectionController.Instance.cureProgressModel.CureSliderIncrease(cureSliderValue);
 
         antibody.transform.DOJump(new Vector3(antibody.transform.position.x + UnityEngine.Random.Range(-1.5f, 1.5f), antibody.transform.position.y, antibody.transform.position.z + UnityEngine.Random.Range(-1.5f, 1.5f)), 2, 1, 1).OnComplete(() =>
         {

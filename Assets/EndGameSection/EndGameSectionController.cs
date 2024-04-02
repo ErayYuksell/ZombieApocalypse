@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndGameSectionController : MonoBehaviour
 {
@@ -9,12 +13,16 @@ public class EndGameSectionController : MonoBehaviour
     [SerializeField] List<GameObject> labRoomListFalse = new List<GameObject>();
     [SerializeField] List<int> intList = new List<int>();
     //[SerializeField] List<GameObject> labRoomListTrue = new List<GameObject>();
-    [SerializeField] GameObject cureBottle;
-    Renderer cureBottleRenderer;
-    Shader liquidShadder;
+
+    public CureProgressModel cureProgressModel;
+    private void Start()
+    {
+        cureProgressModel.Init(this);
+    }
     private void Awake()
     {
         GetActiveSelfTrue();
+        cureProgressModel.BeginSavedCureAmount();
 
         if (Instance == null)
         {
@@ -31,7 +39,7 @@ public class EndGameSectionController : MonoBehaviour
 
     void ActivatingRandomLabStuff()
     {
-        int randomNumber = Random.Range(0, labRoomListFalse.Count);
+        int randomNumber = UnityEngine.Random.Range(0, labRoomListFalse.Count);
         var obj = labRoomListFalse[randomNumber];
         //Debug.Log(randomNumber); 
         // burada listeden obj yi cikarmiyorum ayni objleri dondurebilir bir ara bak ????????
@@ -45,7 +53,8 @@ public class EndGameSectionController : MonoBehaviour
             ActivatingRandomLabStuff();
             var playerController = other.GetComponent<PlayerController>();
             playerController.endSectionModule.PlayerEndSectionMovement();
-            IncreaseCureBottleAmount();
+
+            cureProgressModel.IncreaseCureBottleAmount();
         }
     }
     public void SaveActiveSelfTrue(int objIndex)
@@ -82,14 +91,64 @@ public class EndGameSectionController : MonoBehaviour
         }
     }
 
-
-    public void IncreaseCureBottleAmount()
+    [Serializable]
+    public class CureProgressModel
     {
-        cureBottleRenderer = cureBottle.GetComponentInChildren<Renderer>();
-        liquidShadder = cureBottleRenderer.material.shader;
-        
-       
-       
+        EndGameSectionController endGameSectionController;
+        //[SerializeField] GameObject cureBottle;
+        //Renderer cureBottleRenderer;
+        //Shader liquidShadder;
+        public Image slider;
+        public TextMeshProUGUI multipleText;
+        int multipleTextValue = 1;
+        float recordedCureSliderValue = 0;
+        public GameObject cureBottle;
 
+        public void Init(EndGameSectionController endGameSectionController)
+        {
+            this.endGameSectionController = endGameSectionController;
+        }
+
+        public void WriteMultipleText()
+        {
+            multipleTextValue++;
+            multipleText.text = "x" + multipleTextValue.ToString();
+        }
+        public void CureSliderIncrease(float increaseValue)
+        {
+            slider.fillAmount += increaseValue;
+            // kaydedilen degeri endGameSectiona aktarmakta sikinti cekiyorum
+            recordedCureSliderValue += slider.fillAmount; // bu deger en son beherglass da artacak olan cure sivisininin miktarini belirleyecek
+
+            if (slider.fillAmount >= 0.99f)
+            {
+                slider.fillAmount = 0;
+                WriteMultipleText();
+            }
+        }
+
+        public void SetRecordedSliderValue(float value)
+        {
+            PlayerPrefs.SetFloat("SliderValue", value);
+        }
+        public float GetRecordedSliderValue()
+        {
+            return PlayerPrefs.GetFloat("SliderValue", 0);
+        }
+        public void IncreaseCureBottleAmount()
+        {
+            //cureBottleRenderer = cureBottle.GetComponentInChildren<Renderer>();
+            //liquidShadder = cureBottleRenderer.material.shader;
+            var scaleValue = recordedCureSliderValue;
+            SetRecordedSliderValue((float)scaleValue);
+            cureBottle.transform.localScale = new Vector3(cureBottle.transform.localScale.x, cureBottle.transform.localScale.y + scaleValue, cureBottle.transform.localScale.z);
+
+        }
+        public void BeginSavedCureAmount()
+        {
+            var scaleValue = GetRecordedSliderValue();
+            cureBottle.transform.localScale = new Vector3(cureBottle.transform.localScale.x, cureBottle.transform.localScale.y + scaleValue, cureBottle.transform.localScale.z);
+        }
     }
+
 }

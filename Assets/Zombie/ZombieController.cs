@@ -134,7 +134,7 @@ public class ZombieController : MonoBehaviour
                 item.SetActive(true);
                 item.transform.DOJump(new Vector3(item.transform.position.x + UnityEngine.Random.Range(-1.5f, 1.5f), item.transform.position.y + 0.28f, item.transform.position.z + UnityEngine.Random.Range(-1.5f, 1.5f)), 2, 1, 1).OnComplete(() =>
                 {
-                    FindObjectOfType<CureProgressController>().CureSliderIncrease(cureSliderValue);
+                    EndGameSectionController.Instance.cureProgressModel.CureSliderIncrease(cureSliderValue);
                 });
             }
         }

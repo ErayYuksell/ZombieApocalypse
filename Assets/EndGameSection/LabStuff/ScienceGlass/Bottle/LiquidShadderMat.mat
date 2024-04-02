@@ -50,7 +50,7 @@ Material:
     - _BUILTIN_ZTest: 4
     - _BUILTIN_ZWrite: 1
     - _BUILTIN_ZWriteControl: 0
-    - _Fill: 1
+    - _Fill: 0
     m_Colors:
     - _SideColor: {r: 0, g: 0.23569854, b: 0.5754717, a: 1}
     - _TopColor: {r: 0.06877886, g: 0.5429896, b: 0.8679245, a: 1}
