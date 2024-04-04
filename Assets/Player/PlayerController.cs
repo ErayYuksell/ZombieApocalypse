@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public FireModule fireModule;
     public PLayerDamageModule playerDamageModule;
     public EndSectionModule endSectionModule;
+    public MiddleSequenceModule middleSequenceModule;
 
     Animator animator;
     GameObject m16RIfle;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
         fireModule.Init(this);
         playerDamageModule.Init(this);
         endSectionModule.Init(this);
+        middleSequenceModule.Init(this);
 
         animator = GetComponent<Animator>();
         m16RIfle = transform.Find("M16RIfle").gameObject;
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour
     public class MovementModule
     {
         PlayerController playerController;
-        float xSpeed;
+        public float xSpeed;
         public bool canMove = true;
         public float xLeftValue = -4;
         public float xRightValue = 4;
@@ -208,6 +210,46 @@ public class PlayerController : MonoBehaviour
                 playerController.animator.Play(victoryAnim.name);
                 UIManager.Instance.OpenEndGamePanel();
             });
+        }
+    }
+
+    [Serializable]
+    public class MiddleSequenceModule
+    {
+        public PlayerController playerController;
+        public void Init(PlayerController playerController)
+        {
+            this.playerController = playerController;
+        }
+
+        public void MiddleSequenceAdjustment()
+        {
+            playerController.movementModule.playerSpeed = 2;
+            playerController.movementModule.xSpeed = 20f;
+            playerController.movementModule.xLeftValue = -2.30f;
+            playerController.movementModule.xRightValue = 2.30f;
+        }
+        public void MiddleSequenceReverse()
+        {
+            playerController.movementModule.playerSpeed = 4;
+            playerController.movementModule.xSpeed = 250f;
+            playerController.movementModule.xLeftValue = -4f;
+            playerController.movementModule.xRightValue = 4f;
+        }
+        public void ChangeWeapon(GunType gunType)
+        {
+           switch (gunType)
+            {
+                case GunType.AK47:
+
+                    break;
+                case GunType.MP5:
+
+                    break;
+                case GunType.ShotGun:
+
+                    break;
+            }
         }
     }
 }
