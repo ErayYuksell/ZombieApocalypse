@@ -6,18 +6,12 @@ using UnityEngine;
 public class MedicineBoxController : MonoBehaviour
 {
     GameObject antibody;
-
-    //GameObject cureProgressPanel;
-    //CureProgressController cureProgressController;
-
     [SerializeField] float cureSliderValue = 0.2f;
     private void Start()
     {
         //antibody = GameObject.FindGameObjectWithTag("Antibody"); // bu kodu begenmedim kendi childi olan objeyi daha rahat sekilde bulabilmem lazim /// cozuldu
         antibody = transform.Find("AntiBody").gameObject;
 
-        //cureProgressPanel = GameObject.FindGameObjectWithTag("CureProgressPanel");
-        //cureProgressController = cureProgressPanel.GetComponent<CureProgressController>();
     }
     private void OnTriggerEnter(Collider other)
     {

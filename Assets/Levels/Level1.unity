@@ -4584,28 +4584,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d15069695ff723740acd66da53ca58e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  labRoomListFalse:
-  - {fileID: 1081307309}
-  - {fileID: 941783165}
-  - {fileID: 1001588427}
-  - {fileID: 1240675287}
-  - {fileID: 228505330}
-  - {fileID: 1577825067}
-  - {fileID: 1229422268}
-  - {fileID: 1124132139}
-  - {fileID: 1963247696}
-  - {fileID: 598118320}
-  - {fileID: 1249384105}
-  - {fileID: 1949847898}
-  - {fileID: 1057832755}
-  - {fileID: 675819505}
-  - {fileID: 520367939}
-  - {fileID: 94844005}
-  intList: 
   cureProgressModel:
     slider: {fileID: 383003523}
     multipleText: {fileID: 1607428172}
     cureBottle: {fileID: 471243209}
+  labRoomListPlayerPrefs:
+    labRoomListFalse:
+    - {fileID: 1081307309}
+    - {fileID: 941783165}
+    - {fileID: 1001588427}
+    - {fileID: 1240675287}
+    - {fileID: 94844005}
+    - {fileID: 228505330}
+    - {fileID: 1577825067}
+    - {fileID: 1229422268}
+    - {fileID: 1124132139}
+    - {fileID: 1963247696}
+    - {fileID: 598118320}
+    - {fileID: 1249384105}
+    - {fileID: 1949847898}
+    - {fileID: 1057832755}
+    - {fileID: 675819505}
+    - {fileID: 520367939}
+    intList: 
 --- !u!1 &3580598773126737921
 GameObject:
   m_ObjectHideFlags: 0

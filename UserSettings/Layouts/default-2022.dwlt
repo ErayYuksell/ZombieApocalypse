@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 790.4
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 141
+  controlID: 139
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -956,23 +956,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: fc4dfdff284efdfffe71fdff46c6fdff302dfeff449cfeffe0b4feff82eaffff0efbfffff4ffffff745d0000
+      m_SelectedIDs: f0e1ffff
+      m_LastClickedID: -7696
+      m_ExpandedIDs: 0efbfffff4ffffffc66500002c66000074660000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: lab_erlenmeyer_a (1)
-        m_OriginalName: lab_erlenmeyer_a (1)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -180574
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 7}
       m_SearchString: 
@@ -1027,7 +1027,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/EndGameSection/LabStuff/ScienceGlass
+    - Assets/UIAssets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1035,16 +1035,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/EndGameSection/LabStuff/ScienceGlass/Bottle2
+  - Assets/UIAssets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\erayy\OneDrive\Desktop\Unity Game\ZombieApocalypse
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 73.39996}
-    m_SelectedIDs: c67a0000
-    m_LastClickedID: 31430
-    m_ExpandedIDs: 00000000667a0000687a00006a7a00006c7a00006e7a0000707a0000727a0000747a0000767a0000787a00007a7a00007c7a00007e7a0000807a0000827a0000847a0000867a0000887a00008a7a00008c7a00008e7a0000907a0000927a0000a67a0000ac7a0000c47a0000c67a000020bb000048c000002c50010030500100
+    scrollPos: {x: 0, y: 77.39996}
+    m_SelectedIDs: dc820000
+    m_LastClickedID: 33500
+    m_ExpandedIDs: 00000000828200008482000086820000888200008a8200008c8200008e82000090820000928200009482000096820000988200009a8200009c8200009e820000a0820000a2820000a4820000a6820000a8820000aa820000ac820000ae820000b0820000b2820000b4820000b6820000e2820000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1072,7 +1072,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000667a0000687a00006a7a00006c7a00006e7a0000707a0000727a0000747a0000767a0000787a00007a7a00007c7a00007e7a0000807a0000827a0000847a0000867a0000887a00008a7a00008c7a00008e7a0000907a0000927a0000
+    m_ExpandedIDs: 00000000828200008482000086820000888200008a8200008c8200008e82000090820000928200009482000096820000988200009a8200009c8200009e820000a0820000a2820000a4820000a6820000a8820000aa820000ac820000ae820000b0820000b2820000b4820000b6820000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1099,7 +1099,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000b4630000e0750000d87500001e620000ee61000072620000fe6a00009c6a00004e6c00009a79000092790000ec820000b2750000067e0000fcc7000006990000f2980000ee980000f6980000fa98000002990000e6980000ea980000e2980000bca90000f6a900009edf000022df00005edc0000f2e100009ede00006e6c000002760000067600000a7600001e760000167600009e74000002a8000008f600002af600002ef60000c8d100002a8b0000c2520100b2360300b6360300a6ff0100a6010200142f0100983d01009c580100a4580100546001005c600100907500008475000080750000887500008c750000867500008a750000786d00007a6d00009cbc000020d900000cd9000008d9000024d9000000d9000028d90000a29c0000b29c0000f2b60000d8b60000feb60000f6b60000e6b60000e6130100de130100c2130100ce130100ca130100c6130100d8cb0000d2cb0000cacb0000cecb000068ef000026f000002cf00000966e0000ce0f010012280100222801004c280100ec4501003a4d01002af90000804f0100844f0100e0630100e4730000867e00007071000016f20000606e000076590000f0350100f260000000000000205a000046590000e48700000e650000086600009e68000014680000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1557,9 +1557,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.12664902, y: 3.2903066, z: 0.6848024}
+    m_Target: {x: -0.5470933, y: 5.1104813, z: 86.780235}
     speed: 2
-    m_Value: {x: -0.12664902, y: 3.2903066, z: 0.6848024}
+    m_Value: {x: -0.5470933, y: 5.1104813, z: 86.780235}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1609,9 +1609,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.37322593, y: -0.008349537, z: 0.0033639537, w: 0.9276969}
   m_Size:
-    m_Target: 4.0643144
+    m_Target: 2.5590549
     speed: 2
-    m_Value: 4.0643144
+    m_Value: 2.5590549
   m_Ortho:
     m_Target: 0
     speed: 2

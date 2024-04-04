@@ -1373,63 +1373,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3997164912645420390, guid: deef6fd0370a26a4ba851038feb4b378, type: 3}
   m_PrefabInstance: {fileID: 265635860401119407}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1078821064
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 101.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1093622075853298233, guid: 271955205b410354da61efbd07f8a51d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2210383323290579849, guid: 271955205b410354da61efbd07f8a51d, type: 3}
-      propertyPath: m_Name
-      value: ScienceGlass
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 271955205b410354da61efbd07f8a51d, type: 3}
 --- !u!1 &1113742939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,4 +3158,3 @@ SceneRoots:
   - {fileID: 1689578196}
   - {fileID: 6178926694964849935}
   - {fileID: 265635860401119407}
-  - {fileID: 1078821064}

@@ -43,13 +43,6 @@ public class BulletController : MonoBehaviour
             gateController.IncreaseGateValue();
             gateController.PLayHitAnim();
         }
-        //if (other.CompareTag("Obstacle"))
-        //{
-        //    gameObject.SetActive(false);
-        //    var obstacleController = other.GetComponent<ObstacleController>();
-        //    obstacleController.DestroyObstacle();
-        //    obstacleController.PlayObstacleHitAnim();
-        //}
         if (other.CompareTag("Zombie"))
         {
             gameObject.SetActive(false);
