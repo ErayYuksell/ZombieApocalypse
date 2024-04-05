@@ -29,6 +29,7 @@ MonoBehaviour:
   - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-labRoomListPlayerPrefs.labRoomListFalse__UnityEngine.UIElements.ListView
   - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-labRoomListPlayerPrefs.intList__UnityEngine.UIElements.ListView
   - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-gunList__UnityEngine.UIElements.ListView
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-middleSequenceModule.weaponList__UnityEngine.UIElements.ListView
   m_Values:
   - '{}'
   - '{}'
@@ -46,3 +47,4 @@ MonoBehaviour:
   - '{}'
   - '{}'
   - '{"m_ShowAlternatingRowBackgrounds":0,"serializedVirtualizationData":{"scrollOffset":{"x":0.0,"y":0.0},"firstVisibleIndex":0,"contentPadding":0.0,"contentHeight":242.40000915527345,"anchoredItemIndex":0,"anchorOffset":0.0}}'
+  - '{}'

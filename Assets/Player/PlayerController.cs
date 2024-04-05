@@ -216,7 +216,8 @@ public class PlayerController : MonoBehaviour
     [Serializable]
     public class MiddleSequenceModule
     {
-        public PlayerController playerController;
+        PlayerController playerController;
+        public List<GameObject> weaponList = new List<GameObject>();
         public void Init(PlayerController playerController)
         {
             this.playerController = playerController;
@@ -238,16 +239,24 @@ public class PlayerController : MonoBehaviour
         }
         public void ChangeWeapon(GunType gunType)
         {
-           switch (gunType)
+            switch (gunType)
             {
                 case GunType.AK47:
-
+                    playerController.m16RIfle.gameObject.SetActive(false);
+                    playerController.fireModule.power += 1;
+                    weaponList[0].SetActive(true);
                     break;
                 case GunType.MP5:
-
+                    playerController.m16RIfle.gameObject.SetActive(false);
+                    playerController.fireModule.rate /= 2;
+                    playerController.fireModule.power -= 0.5f;
+                    weaponList[1].SetActive(true);
                     break;
                 case GunType.ShotGun:
-
+                    playerController.m16RIfle.gameObject.SetActive(false);
+                    playerController.fireModule.rate *= 2;
+                    playerController.fireModule.power += 2;
+                    weaponList[2].SetActive(true);
                     break;
             }
         }

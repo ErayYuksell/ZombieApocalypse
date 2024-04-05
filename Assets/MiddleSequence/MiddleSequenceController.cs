@@ -18,6 +18,7 @@ public class MiddleSequenceController : MonoBehaviour
         {
             var playerController = other.GetComponent<PlayerController>();
             playerController.middleSequenceModule.MiddleSequenceReverse();
+            gameObject.SetActive(false);
         }
     }
 }

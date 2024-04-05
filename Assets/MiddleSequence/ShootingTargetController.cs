@@ -23,8 +23,14 @@ public class ShootingTargetController : MonoBehaviour
     [SerializeField] Image gunImage;
     [SerializeField] TextMeshProUGUI targetValueText;
 
+    PlayerController playerController;
+    GameObject playerObject;
+
     private void Start()
     {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        playerController = playerObject.GetComponent<PlayerController>();
+
         GetImage();
         GetTargetValue();
     }
@@ -48,10 +54,11 @@ public class ShootingTargetController : MonoBehaviour
         if (gunWrapper.targetValue == 0)
         {
             //player controller middle sequence module ulasarak silahi falan degismen lazim 
-            
+            playerController.middleSequenceModule.ChangeWeapon(gunType);
+            playerController.middleSequenceModule.MiddleSequenceReverse();
+            gameObject.GetComponentInParent<MiddleSequenceController>().gameObject.SetActive(false);
         }
         gunWrapper.targetValue -= 1;
-        Debug.Log(gunWrapper.targetValue);
         targetValueText.text = gunWrapper.targetValue.ToString();
     }
 }
