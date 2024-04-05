@@ -404,13 +404,13 @@ MonoBehaviour:
   gunList:
   - gunType: 0
     gunImage: {fileID: 21300000, guid: 3c9c135571a3c7149ac7f3b01fd342bc, type: 3}
-    targetValue: 5
+    targetValue: 11
   - gunType: 1
     gunImage: {fileID: 21300000, guid: 7c51b40f1e3756943adb981946ec9a74, type: 3}
-    targetValue: 5
+    targetValue: 8
   - gunType: 2
     gunImage: {fileID: 21300000, guid: 7b546fea4b55e7d49b9d89dca176c8bd, type: 3}
-    targetValue: 5
+    targetValue: 13
   gunImage: {fileID: 6003392048204281747}
   targetValueText: {fileID: 6283120389937815695}
 --- !u!1 &8721274633536997330

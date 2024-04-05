@@ -21,7 +21,7 @@ public class ZombieController : MonoBehaviour
     bool canZombieMove = true;
     [SerializeField, Range(1, 3)] int zombieSpeed = 2;
     [SerializeField, Range(3, 10)] int zombieValue = 3;
-    [SerializeField] int zombieShootCount = 0;
+    [SerializeField] float zombieShootCount = 0;
     Animator animator;
     BoxCollider myCollider;
     [Space]
@@ -78,9 +78,9 @@ public class ZombieController : MonoBehaviour
         return zombieList.Find((zombie) => zombie.zombieType == type); // classlar arasindan Find fonksiyonu kullanarak istenilen tiptekini buluyoruz
     }
 
-    public void ShootZombieCounter() //ZombieDeath icin farkli
+    public void ShootZombieCounter(float value) //ZombieDeath icin farkli
     {
-        zombieShootCount++;
+        zombieShootCount+= value;
 
         if (zombieShootCount >= zombieValue)
         {

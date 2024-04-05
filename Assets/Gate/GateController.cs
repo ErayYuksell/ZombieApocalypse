@@ -30,7 +30,7 @@ public class GateController : MonoBehaviour
     }
     void WriteGateText(GateType gateType)
     {
-        gateText.text = gateValue.ToString() + " " + gateType.ToString();
+        gateText.text = gateValue.ToString("f0") + " " + gateType.ToString();
     }
     void ChangeGateColor()
     {
@@ -71,9 +71,9 @@ public class GateController : MonoBehaviour
         }
     }
 
-    public void IncreaseGateValue()
+    public void IncreaseGateValue(float value)
     {
-        gateValue++;
+        gateValue += value;
     }
     public void PLayHitAnim()
     {

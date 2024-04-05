@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public MiddleSequenceModule middleSequenceModule;
 
     Animator animator;
-    GameObject m16RIfle;
+
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         middleSequenceModule.Init(this);
 
         animator = GetComponent<Animator>();
-        m16RIfle = transform.Find("M16RIfle").gameObject;
+
 
         StartCoroutine(fireModule.SetFire());
     }
@@ -119,9 +119,9 @@ public class PlayerController : MonoBehaviour
     {
         PlayerController playerController;
 
-        [Range(0.2f, 1)] public float rate = 0.4f;
+        [Range(0.1f, 1)] public float rate = 0.4f;
         [Range(8, 20)] public float range = 15;
-        [Range(0.8f, 2)] public float power;
+        [Range(0.5f, 2)] public float power = 1;
         [Space]
         public float rateScale;
         public float rangeScale;
@@ -201,7 +201,7 @@ public class PlayerController : MonoBehaviour
             playerController.movementModule.canMove = false;
             playerController.fireModule.canFire = false;
 
-            playerController.m16RIfle.SetActive(false);
+            playerController.middleSequenceModule.CloseAllWeapon();
 
             playerController.animator.Play(walkAnim.name);
 
@@ -237,23 +237,29 @@ public class PlayerController : MonoBehaviour
             playerController.movementModule.xLeftValue = -4f;
             playerController.movementModule.xRightValue = 4f;
         }
+        public void CloseAllWeapon()
+        {
+            foreach (var item in weaponList)
+            {
+                item.SetActive(false);
+            }
+        }
         public void ChangeWeapon(GunType gunType)
         {
+            CloseAllWeapon();
+
             switch (gunType)
             {
                 case GunType.AK47:
-                    playerController.m16RIfle.gameObject.SetActive(false);
                     playerController.fireModule.power += 1;
                     weaponList[0].SetActive(true);
                     break;
                 case GunType.MP5:
-                    playerController.m16RIfle.gameObject.SetActive(false);
                     playerController.fireModule.rate /= 2;
                     playerController.fireModule.power -= 0.5f;
                     weaponList[1].SetActive(true);
                     break;
                 case GunType.ShotGun:
-                    playerController.m16RIfle.gameObject.SetActive(false);
                     playerController.fireModule.rate *= 2;
                     playerController.fireModule.power += 2;
                     weaponList[2].SetActive(true);

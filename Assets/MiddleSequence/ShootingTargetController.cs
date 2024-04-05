@@ -14,7 +14,7 @@ public class GunWrapper
 {
     public GunType gunType;
     public Sprite gunImage;
-    public int targetValue;
+    public float targetValue;
 }
 public class ShootingTargetController : MonoBehaviour
 {
@@ -37,7 +37,7 @@ public class ShootingTargetController : MonoBehaviour
     public void GetTargetValue()
     {
         var gunWrapper = GetGunClass(gunType);
-        targetValueText.text = gunWrapper.targetValue.ToString();
+        targetValueText.text = gunWrapper.targetValue.ToString("f0");
     }
     public void GetImage()
     {
@@ -48,17 +48,17 @@ public class ShootingTargetController : MonoBehaviour
     {
         return gunList.Find((gunWrapper) => gunWrapper.gunType == type);
     }
-    public void DecreaseTargetValue()
+    public void DecreaseTargetValue(float value)
     {
         var gunWrapper = GetGunClass(gunType);
-        if (gunWrapper.targetValue == 0)
+        if (gunWrapper.targetValue <= 0)
         {
             //player controller middle sequence module ulasarak silahi falan degismen lazim 
             playerController.middleSequenceModule.ChangeWeapon(gunType);
             playerController.middleSequenceModule.MiddleSequenceReverse();
             gameObject.GetComponentInParent<MiddleSequenceController>().gameObject.SetActive(false);
         }
-        gunWrapper.targetValue -= 1;
-        targetValueText.text = gunWrapper.targetValue.ToString();
+        gunWrapper.targetValue -= value;
+        targetValueText.text = gunWrapper.targetValue.ToString("f0");
     }
 }

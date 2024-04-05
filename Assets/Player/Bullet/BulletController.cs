@@ -40,28 +40,28 @@ public class BulletController : MonoBehaviour
         {
             gameObject.SetActive(false);
             var gateController = other.GetComponent<GateController>();
-            gateController.IncreaseGateValue();
+            gateController.IncreaseGateValue(playerController.fireModule.power);
             gateController.PLayHitAnim();
         }
         if (other.CompareTag("Zombie"))
         {
             gameObject.SetActive(false);
             var zombieController = other.GetComponent<ZombieController>();
-            zombieController.ShootZombieCounter();
+            zombieController.ShootZombieCounter(playerController.fireModule.power);
         }
         if (other.CompareTag("BreakableWall"))
         {
             gameObject.SetActive(false);
             var breakableController = other.GetComponent<BreakableWallController>();
             //breakableController.WriteWallText();
-            breakableController.PartsMovement();
+            breakableController.PartsMovement(playerController.fireModule.power);
         }
         if (other.CompareTag("ShootingTarget"))
         {
             gameObject.SetActive(false);
             //var middleSequenceController = other.GetComponentInParent<MiddleSequenceController>();
             var shootingTargetController = other.GetComponent<ShootingTargetController>();
-            shootingTargetController.DecreaseTargetValue();
+            shootingTargetController.DecreaseTargetValue(playerController.fireModule.power);
         }
     }
 }

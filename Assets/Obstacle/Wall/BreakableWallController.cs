@@ -9,15 +9,15 @@ public class BreakableWallController : MonoBehaviour
     [SerializeField] List<GameObject> wallParts = new List<GameObject>();
     [Space]
     [SerializeField] TextMeshProUGUI wallText;
-    int wallTextCount;
+    float wallTextCount;
     [SerializeField, Range(4, 15)] int wallValue = 4;
-    int wallCount;
+    float wallCount;
     private void Start()
     {
         wallTextCount = wallValue;
         wallText.text = wallTextCount.ToString();
     }
-    public void PartsMovement()
+    public void PartsMovement(float value)
     {
         if (wallParts.Count <= 0)
         {
@@ -29,21 +29,21 @@ public class BreakableWallController : MonoBehaviour
         //part.GetComponent<Rigidbody>().AddExplosionForce(1, new Vector3(part.transform.position.x + Random.Range(-1, 1), 0, part.transform.position.z + Random.Range(-2, 2)), 2);
         part.transform.DOJump(new Vector3(part.transform.position.x + Random.Range(-1, 1), 0, part.transform.position.z + Random.Range(-2, 2)), 2, 1, 1).OnComplete(() =>
         {
-            WriteWallText();
-            DestroyWall();
+            WriteWallText(value);
+            DestroyWall(value);
         });
     }
-    public void DestroyWall()
+    public void DestroyWall(float value)
     {
-        wallCount++;
+        wallCount += value;
         if (wallCount >= wallValue)
         {
             gameObject.SetActive(false);
         }
     }
-    public void WriteWallText()
+    public void WriteWallText(float value)
     {
-        wallTextCount--;
+        wallTextCount -= value;
         wallText.text = wallTextCount.ToString();
     }
     private void OnTriggerEnter(Collider other)
