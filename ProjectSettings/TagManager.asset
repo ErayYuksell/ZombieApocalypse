@@ -11,6 +11,8 @@ TagManager:
   - BreakableWall
   - CureProgressPanel
   - ShootingTarget
+  - MiddleSequence
+  - EndGameSection
   layers:
   - Default
   - TransparentFX

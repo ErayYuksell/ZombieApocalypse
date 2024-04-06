@@ -8,6 +8,10 @@ public class MiddleSequenceController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            //var shootingTarget = transform.Find("ShootingTarget").gameObject;
+            //shootingTarget.GetComponent<ShootingTargetController>().SetCanShoot();
+            GetShootingTargetController();
+
             var playerController = other.GetComponent<PlayerController>();
             playerController.middleSequenceModule.MiddleSequenceAdjustment();
         }
@@ -19,6 +23,16 @@ public class MiddleSequenceController : MonoBehaviour
             var playerController = other.GetComponent<PlayerController>();
             playerController.middleSequenceModule.MiddleSequenceReverse();
             gameObject.SetActive(false);
+        }
+    }
+
+    public void GetShootingTargetController()
+    {
+        var body = transform.Find("Body").gameObject;
+
+        for (int i = 0; i < body.transform.childCount; i++)
+        {
+            body.transform.GetChild(i).GetComponent<ShootingTargetController>().SetCanShoot();
         }
     }
 }

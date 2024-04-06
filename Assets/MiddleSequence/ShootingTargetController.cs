@@ -25,6 +25,8 @@ public class ShootingTargetController : MonoBehaviour
 
     PlayerController playerController;
     GameObject playerObject;
+    bool canShoot = false;
+   
 
     private void Start()
     {
@@ -34,6 +36,11 @@ public class ShootingTargetController : MonoBehaviour
         GetImage();
         GetTargetValue();
     }
+    public void SetCanShoot()
+    {
+        canShoot = true;
+    }
+   
     public void GetTargetValue()
     {
         var gunWrapper = GetGunClass(gunType);
@@ -50,10 +57,14 @@ public class ShootingTargetController : MonoBehaviour
     }
     public void DecreaseTargetValue(float value)
     {
+        if (!canShoot)
+        {
+            return;
+        }
+
         var gunWrapper = GetGunClass(gunType);
         if (gunWrapper.targetValue <= 0)
         {
-            //player controller middle sequence module ulasarak silahi falan degismen lazim 
             playerController.middleSequenceModule.ChangeWeapon(gunType);
             playerController.middleSequenceModule.MiddleSequenceReverse();
             gameObject.GetComponentInParent<MiddleSequenceController>().gameObject.SetActive(false);
