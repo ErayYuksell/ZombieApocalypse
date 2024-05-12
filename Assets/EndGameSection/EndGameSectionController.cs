@@ -143,6 +143,7 @@ public class EndGameSectionController : MonoBehaviour
         {
             recordedCureSliderValue = 0;
             slider.fillAmount = 0;
+            multipleText.text = " ";
         }
 
         public void SetRecordedSliderValue(float value)
