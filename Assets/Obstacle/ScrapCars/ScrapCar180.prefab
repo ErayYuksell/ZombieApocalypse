@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4885231679213659445, guid: 6e47e5421410cbe498fb0dba5b724c7b, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 4885231679213659445, guid: 6e47e5421410cbe498fb0dba5b724c7b, type: 3}
       propertyPath: m_Name
       value: ScrapCar180
       objectReference: {fileID: 0}

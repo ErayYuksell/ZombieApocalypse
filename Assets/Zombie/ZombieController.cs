@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 
 public enum ZombieType { womanZombie, copZombie, yakuzaZombie }
 
@@ -31,6 +31,8 @@ public class ZombieController : MonoBehaviour
     [Space]
     public AntiBodyDropModule antiBodyDropModule;
 
+    Rigidbody rb;
+
     private void Start()
     {
         antiBodyDropModule.Init(this);
@@ -39,6 +41,8 @@ public class ZombieController : MonoBehaviour
         myCollider = GetComponent<BoxCollider>();
 
         antiBodyDropModule.CreateAntiBody();
+
+        rb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
@@ -77,10 +81,9 @@ public class ZombieController : MonoBehaviour
     {
         return zombieList.Find((zombie) => zombie.zombieType == type); // classlar arasindan Find fonksiyonu kullanarak istenilen tiptekini buluyoruz
     }
-
     public void ShootZombieCounter(float value) //ZombieDeath icin farkli
     {
-        zombieShootCount+= value;
+        zombieShootCount += value;
 
         if (zombieShootCount >= zombieValue)
         {
@@ -90,15 +93,37 @@ public class ZombieController : MonoBehaviour
 
         }
     }
+
+    public void OvercomeObstacles() // zombiler engellere denk geldiginde bulundugu konuma gore engeli atlatacak
+    {
+        if (transform.position.x > 0)
+        {
+            transform.DOMoveX(transform.position.x - UnityEngine.Random.Range(3, 5), 3);
+        }
+        else
+        {
+            transform.DOMoveX(transform.position.x + UnityEngine.Random.Range(3, 5), 3);
+        }
+    }
     private void OnTriggerEnter(Collider other) // ZombieAttack icin farkli
     {
         if (other.CompareTag("Player"))
         {
+            rb.constraints = RigidbodyConstraints.FreezeAll; // zombi hareketini tamamen durdurmak icin
+
             canZombieMove = false;
             myCollider.enabled = false;
             ChooseZombieAttackingAnim();
             var playerController = other.GetComponent<PlayerController>();
             playerController.playerDamageModule.BouncedPlayer(ChoosePLayerBouncePower());
+        }
+        if (other.CompareTag("Obstacle"))
+        {
+            OvercomeObstacles();
+        }
+        if (other.CompareTag("BreakableWall"))
+        {
+            OvercomeObstacles();
         }
     }
 

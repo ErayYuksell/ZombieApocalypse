@@ -17,7 +17,7 @@ GameObject:
   m_Layer: 0
   m_Name: ScrapCar2
   m_TagString: Obstacle
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -105,8 +105,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.007490936, y: 0.008078675, z: 0.020124817}
-  m_Center: {x: -0.0022202549, y: 0.00006375014, z: -0.00053669215}
+  m_Size: {x: 0.010295064, y: 0.008078675, z: 0.024142377}
+  m_Center: {x: -0.000818196, y: 0.00006375014, z: -0.0025454601}
 --- !u!54 &1440465049535359819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c31597330350647aa4ccf83335c8e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstacleValue: 0.05
