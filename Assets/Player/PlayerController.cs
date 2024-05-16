@@ -70,12 +70,12 @@ public class PlayerController : MonoBehaviour
             float newXValue;
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
             {
-                xSpeed = 250f;
+                xSpeed = 100f;
                 touchX = Input.GetTouch(0).deltaPosition.x / Screen.width;
             }
             else if (Input.GetMouseButton(0))
             {
-                xSpeed = 250f;
+                xSpeed = 20f;
                 touchX = Input.GetAxis("Mouse X");
             }
             newXValue = playerController.transform.position.x + xSpeed * touchX * Time.deltaTime;
@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour
         public GameObject objectPool;
         public Transform firePoint;
         public bool canFire = true;
+
         public void Init(PlayerController playerController)
         {
             this.playerController = playerController;

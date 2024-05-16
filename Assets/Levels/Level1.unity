@@ -6054,6 +6054,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2183063306942906031, guid: 2cfc766c7a71eec44bc86378db81ea24, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -53.6
+      objectReference: {fileID: 0}
     - target: {fileID: 3963476946869629409, guid: 2cfc766c7a71eec44bc86378db81ea24, type: 3}
       propertyPath: m_Name
       value: MiddleSequence
@@ -6115,6 +6119,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 589094219501059646, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
+      propertyPath: fireModule.rate
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 589094219501059646, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
       propertyPath: fireModule.objectPool
       value: 
@@ -6586,9 +6594,10 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 2140170129457723430}
+  - {fileID: 265635860401119407}
   - {fileID: 126506237}
   - {fileID: 705507995}
-  - {fileID: 2140170129457723430}
   - {fileID: 1951309016}
   - {fileID: 1010093282}
   - {fileID: 642271598}
@@ -6596,8 +6605,7 @@ SceneRoots:
   - {fileID: 1402898623}
   - {fileID: 131886651}
   - {fileID: 1689578196}
+  - {fileID: 6082545741303800516}
   - {fileID: 1744953724784924062}
   - {fileID: 6178926694964849935}
-  - {fileID: 265635860401119407}
-  - {fileID: 6082545741303800516}
   - {fileID: 1149621707}

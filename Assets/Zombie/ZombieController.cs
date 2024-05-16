@@ -47,7 +47,7 @@ public class ZombieController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
-        bloodEffectObject = transform.Find("BloodEffect").gameObject;
+        bloodEffectObject = transform.Find("BloodEffect_1").gameObject;
         particleSystem = bloodEffectObject.GetComponent<ParticleSystem>();
     }
     private void Update()
