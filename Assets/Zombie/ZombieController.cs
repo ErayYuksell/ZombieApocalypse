@@ -33,6 +33,9 @@ public class ZombieController : MonoBehaviour
 
     Rigidbody rb;
 
+    GameObject bloodEffectObject;
+    ParticleSystem particleSystem;
+
     private void Start()
     {
         antiBodyDropModule.Init(this);
@@ -43,6 +46,9 @@ public class ZombieController : MonoBehaviour
         antiBodyDropModule.CreateAntiBody();
 
         rb = GetComponent<Rigidbody>();
+
+        bloodEffectObject = transform.Find("BloodEffect").gameObject;
+        particleSystem = bloodEffectObject.GetComponent<ParticleSystem>();
     }
     private void Update()
     {
@@ -84,6 +90,7 @@ public class ZombieController : MonoBehaviour
     public void ShootZombieCounter(float value) //ZombieDeath icin farkli
     {
         zombieShootCount += value;
+        particleSystem.Play();
 
         if (zombieShootCount >= zombieValue)
         {
