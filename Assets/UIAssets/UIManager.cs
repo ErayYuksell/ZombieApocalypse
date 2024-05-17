@@ -16,8 +16,6 @@ public class UIManager : MonoBehaviour
    
     private void Awake()
     {
-        //IsTheStartPanelOpen();
-
         if (Instance == null)
         {
             Instance = this;

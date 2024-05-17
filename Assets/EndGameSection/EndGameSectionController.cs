@@ -26,7 +26,7 @@ public class EndGameSectionController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             //nesnemin levellar arasi yok olmasini engelleyerek oyunu kapatana kadar liste icinde tutarak objeleri aciyorum
 
         }

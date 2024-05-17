@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         movementModule.PlayerMovement();
-
+        Editor();
     }
 
     public void StartFireCaroutine()
@@ -129,8 +129,9 @@ public class PlayerController : MonoBehaviour
         [Space]
         public GameObject objectPool;
         public Transform firePoint;
+        public Transform firePoint2;
         public bool canFire = true;
-
+        public bool isShotGunActive = false;
         public void Init(PlayerController playerController)
         {
             this.playerController = playerController;
@@ -143,6 +144,13 @@ public class PlayerController : MonoBehaviour
                 var objectPoolScript = objectPool.GetComponent<ObjectPool>();
                 var obj = objectPoolScript.GetPoolObjects();
                 obj.transform.position = firePoint.position;
+
+                if (isShotGunActive) // shotgun 2 li mermi atsin
+                {
+                    var obj2 = objectPoolScript.GetPoolObjects();
+                    obj2.transform.position = firePoint2.position;
+                }
+
                 yield return new WaitForSeconds(rate);
             }
         }
@@ -219,6 +227,13 @@ public class PlayerController : MonoBehaviour
     {
         PlayerController playerController;
         public List<GameObject> weaponList = new List<GameObject>();
+        [Space]
+        public float AKPower = 1;
+        public float MP5Rate = 0.5f;
+        public float MP5Power = 0.5f;
+        public float ShotGunPower = 1f;
+        public float ShotGunRate = 2f;
+
         public void Init(PlayerController playerController)
         {
             this.playerController = playerController;
@@ -252,20 +267,35 @@ public class PlayerController : MonoBehaviour
             switch (gunType)
             {
                 case GunType.AK47:
-                    playerController.fireModule.power += 1;
+                    playerController.fireModule.power += AKPower;
                     weaponList[0].SetActive(true);
                     break;
                 case GunType.MP5:
-                    playerController.fireModule.rate /= 2;
-                    playerController.fireModule.power -= 0.5f;
+                    playerController.fireModule.rate /= MP5Rate;
+                    playerController.fireModule.power -= MP5Power;
                     weaponList[1].SetActive(true);
                     break;
                 case GunType.ShotGun:
-                    playerController.fireModule.rate *= 2;
-                    playerController.fireModule.power += 2;
+                    playerController.fireModule.rate *= ShotGunRate;
+                    playerController.fireModule.power += ShotGunPower;
                     weaponList[2].SetActive(true);
+
+                    playerController.fireModule.isShotGunActive = true;
                     break;
             }
+        }
+    }
+
+
+    public void Editor()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Time.timeScale = 3;
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Time.timeScale = 1;
         }
     }
 }

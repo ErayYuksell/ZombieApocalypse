@@ -8,10 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Level1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Levels/Level2.unity
-    guid: f1dfb6ea627e9ef48b6e2ba05f2c7f10
-  - enabled: 0
+    guid: 22e508900ccfa8f4abd7cb88c378ba9a
+  - enabled: 1
     path: Assets/Levels/Level3.unity
-    guid: 70238c5420502214e85f87b1840524f3
+    guid: abed764ffaea4ce49b91d1d1aba51a3f
+  - enabled: 1
+    path: Assets/Levels/Level4.unity
+    guid: ddc8f4f70c19c63439e678c3c576e4c6
+  - enabled: 1
+    path: Assets/Levels/Level5.unity
+    guid: 5971bf71f3871094486a9ed372c27b11
+  - enabled: 1
+    path: Assets/Levels/Level6.unity
+    guid: 75f1adfbd947ff24899160e0cb40ddfa
   m_configObjects: {}
