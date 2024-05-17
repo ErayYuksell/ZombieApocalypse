@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
+
 
 public enum ZombieType { womanZombie, copZombie, yakuzaZombie }
 
@@ -34,7 +34,7 @@ public class ZombieController : MonoBehaviour
     Rigidbody rb;
 
     GameObject bloodEffectObject;
-    ParticleSystem particleSystem;
+    ParticleSystem BlodParticleSystem;
 
     private void Start()
     {
@@ -48,7 +48,7 @@ public class ZombieController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         bloodEffectObject = transform.Find("BloodEffect_1").gameObject;
-        particleSystem = bloodEffectObject.GetComponent<ParticleSystem>();
+        BlodParticleSystem = bloodEffectObject.GetComponent<ParticleSystem>();
     }
     private void Update()
     {
@@ -90,7 +90,7 @@ public class ZombieController : MonoBehaviour
     public void ShootZombieCounter(float value) //ZombieDeath icin farkli
     {
         zombieShootCount += value;
-        particleSystem.Play();
+        BlodParticleSystem.Play();
 
         if (zombieShootCount >= zombieValue)
         {

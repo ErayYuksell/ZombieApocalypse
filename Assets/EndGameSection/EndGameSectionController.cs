@@ -26,9 +26,6 @@ public class EndGameSectionController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
-            //nesnemin levellar arasi yok olmasini engelleyerek oyunu kapatana kadar liste icinde tutarak objeleri aciyorum
-
         }
         else
         {
@@ -36,7 +33,7 @@ public class EndGameSectionController : MonoBehaviour
         }
     }
 
-   
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -48,7 +45,7 @@ public class EndGameSectionController : MonoBehaviour
             cureProgressModel.IncreaseCureBottleAmount();
         }
     }
-   
+
     [Serializable]
     public class LabRoomListPlayerPrefs
     {
@@ -108,14 +105,14 @@ public class EndGameSectionController : MonoBehaviour
     public class CureProgressModel
     {
         EndGameSectionController endGameSectionController;
-        //[SerializeField] GameObject cureBottle;
-        //Renderer cureBottleRenderer;
-        //Shader liquidShadder;
+        [Space]
+        public Renderer liquedRenderer;
+        [Space]
         public Image slider;
         public TextMeshProUGUI multipleText;
         int multipleTextValue = 1;
         float recordedCureSliderValue = 0;
-        public GameObject cureBottle;
+
 
         public void Init(EndGameSectionController endGameSectionController)
         {
@@ -130,7 +127,6 @@ public class EndGameSectionController : MonoBehaviour
         public void CureSliderIncrease(float increaseValue)
         {
             slider.fillAmount += increaseValue;
-            // kaydedilen degeri endGameSectiona aktarmakta sikinti cekiyorum
             recordedCureSliderValue += slider.fillAmount; // bu deger en son beherglass da artacak olan cure sivisininin miktarini belirleyecek
 
             if (slider.fillAmount >= 0.99f)
@@ -156,20 +152,17 @@ public class EndGameSectionController : MonoBehaviour
         }
         public void IncreaseCureBottleAmount()
         {
-            //cureBottleRenderer = cureBottle.GetComponentInChildren<Renderer>();
-            //liquidShadder = cureBottleRenderer.material.shader;
-            var scaleValue = recordedCureSliderValue / 10;
-            SetRecordedSliderValue((float)scaleValue);
-            //cureBottle.transform.localScale = new Vector3(cureBottle.transform.localScale.x, cureBottle.transform.localScale.y + scaleValue, cureBottle.transform.localScale.z);
-            cureBottle.transform.DOScaleY(cureBottle.transform.localScale.y + scaleValue, 1).OnComplete(() =>
-            {
-                ResetSliderValue();
-            });
+            recordedCureSliderValue *= 0.2f;
+            //Debug.Log("sliderValue" + recordedCureSliderValue.ToString());
+            //Debug.Log("liquid" + liquedRenderer.material.GetFloat("_Fill"));
+            liquedRenderer.material.SetFloat("_Fill", recordedCureSliderValue);
+            //Debug.Log("Fill liquid" + liquedRenderer.material.GetFloat("_Fill"));
+            SetRecordedSliderValue(recordedCureSliderValue);
         }
         public void BeginSavedCureAmount()
         {
-            var scaleValue = GetRecordedSliderValue();
-            cureBottle.transform.localScale = new Vector3(cureBottle.transform.localScale.x, cureBottle.transform.localScale.y + scaleValue, cureBottle.transform.localScale.z);
+            var cureSliderValue = GetRecordedSliderValue();
+            liquedRenderer.material.SetFloat("_Fill", cureSliderValue);
         }
     }
 

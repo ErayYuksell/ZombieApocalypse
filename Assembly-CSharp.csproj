@@ -58,6 +58,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CollectibleObject\Box\MedicineBoxController.cs" />
     <Compile Include="Assets\Zombie\ZombieController.cs" />
     <Compile Include="Assets\MiddleSequence\MiddleSequenceController.cs" />
     <Compile Include="Assets\MiddleSequence\ShootingTargetController.cs" />
@@ -66,11 +67,10 @@
     <Compile Include="Assets\Player\CameraZoneSwitcher.cs" />
     <Compile Include="Assets\Player\Bullet\ObjectPool\ObjectPool.cs" />
     <Compile Include="Assets\Obstacle\ObstacleController.cs" />
-    <Compile Include="Assets\Gate\GateController.cs" />
+    <Compile Include="Assets\Obstacle\BreakableWall\BreakableWallController.cs" />
     <Compile Include="Assets\Player\Bullet\BulletController.cs" />
-    <Compile Include="Assets\Box\MedicineBoxController.cs" />
-    <Compile Include="Assets\GameManager\GameManager.cs" />
-    <Compile Include="Assets\Obstacle\Wall\BreakableWallController.cs" />
+    <Compile Include="Assets\CollectibleObject\Gate\GateController.cs" />
+    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Player\PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>

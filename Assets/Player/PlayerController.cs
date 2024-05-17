@@ -271,7 +271,7 @@ public class PlayerController : MonoBehaviour
                     weaponList[0].SetActive(true);
                     break;
                 case GunType.MP5:
-                    playerController.fireModule.rate /= MP5Rate;
+                    playerController.fireModule.rate *= MP5Rate;
                     playerController.fireModule.power -= MP5Power;
                     weaponList[1].SetActive(true);
                     break;
