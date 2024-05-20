@@ -217,7 +217,7 @@ public class PlayerController : MonoBehaviour
             playerController.transform.DOMove(new Vector3(0, playerController.transform.position.y, playerController.transform.position.z + walkDistance), walkingTime).OnComplete(() =>
             {
                 playerController.animator.Play(victoryAnim.name);
-                UIManager.Instance.OpenEndGamePanel();
+                UIManager.Instance.OpenGameOverPanel();
             });
         }
     }

@@ -140,8 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cureProgressModel:
     liquedRenderer: {fileID: 6060325590833247735}
-    slider: {fileID: 0}
-    multipleText: {fileID: 0}
+    smoothTime: 0.5
   labRoomListPlayerPrefs:
     labRoomListFalse:
     - {fileID: 3859529359765001630}
@@ -161,6 +160,9 @@ MonoBehaviour:
     - {fileID: 6471551387012632476}
     - {fileID: 2965229314983808892}
     intList: 
+  liquidRenderer: {fileID: 6060325590833247735}
+  fillImage: {fileID: 0}
+  multipleText: {fileID: 0}
 --- !u!1 &3743818870221747671
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5848701470575446324, guid: 49ade015952a40845b23e6179c7fbce9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.34
+      value: 4.89
       objectReference: {fileID: 0}
     - target: {fileID: 5848701470575446324, guid: 49ade015952a40845b23e6179c7fbce9, type: 3}
       propertyPath: m_LocalPosition.z

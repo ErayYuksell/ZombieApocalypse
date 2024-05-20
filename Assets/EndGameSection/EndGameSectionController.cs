@@ -10,11 +10,18 @@ using UnityEngine.UI;
 public class EndGameSectionController : MonoBehaviour
 {
     public static EndGameSectionController Instance;
-
+    [Space]
     public CureProgressModel cureProgressModel;
     public LabRoomListPlayerPrefs labRoomListPlayerPrefs;
+    [HideInInspector]
+    public Image fillImage;
+    [HideInInspector]
+    public TextMeshProUGUI multipleText;
     private void Start()
     {
+        fillImage = UIManager.Instance.fillImage;
+        multipleText = UIManager.Instance.multipleText;
+
         cureProgressModel.Init(this);
         labRoomListPlayerPrefs.Init(this);
     }
@@ -32,8 +39,6 @@ public class EndGameSectionController : MonoBehaviour
             Destroy(this);
         }
     }
-
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -105,41 +110,51 @@ public class EndGameSectionController : MonoBehaviour
     public class CureProgressModel
     {
         EndGameSectionController endGameSectionController;
-        [Space]
         public Renderer liquedRenderer;
         [Space]
-        public Image slider;
-        public TextMeshProUGUI multipleText;
         int multipleTextValue = 1;
         float recordedCureSliderValue = 0;
-
+        public float smoothTime = 0.5f; // Yumuþak geçiþ süresi
 
         public void Init(EndGameSectionController endGameSectionController)
         {
             this.endGameSectionController = endGameSectionController;
         }
-
         public void WriteMultipleText()
         {
             multipleTextValue++;
-            multipleText.text = "x" + multipleTextValue.ToString();
+            endGameSectionController.multipleText.text = "x" + multipleTextValue.ToString();
         }
         public void CureSliderIncrease(float increaseValue)
         {
-            slider.fillAmount += increaseValue;
-            recordedCureSliderValue += slider.fillAmount; // bu deger en son beherglass da artacak olan cure sivisininin miktarini belirleyecek
+            endGameSectionController.StartCoroutine(SmoothIncrease(endGameSectionController.fillImage.fillAmount + increaseValue));
+        }
 
-            if (slider.fillAmount >= 0.99f)
+        private IEnumerator SmoothIncrease(float targetValue)
+        {
+            float elapsedTime = 0;
+            float startValue = endGameSectionController.fillImage.fillAmount;
+            while (elapsedTime < smoothTime)
             {
-                slider.fillAmount = 0;
+                endGameSectionController.fillImage.fillAmount = Mathf.Lerp(startValue, targetValue, elapsedTime / smoothTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            endGameSectionController.fillImage.fillAmount = targetValue;
+
+            recordedCureSliderValue += endGameSectionController.fillImage.fillAmount; // bu deger en son beherglass da artacak olan cure sivisininin miktarini belirleyecek
+
+            if (endGameSectionController.fillImage.fillAmount >= 0.99f)
+            {
+                endGameSectionController.fillImage.fillAmount = 0;
                 WriteMultipleText();
             }
         }
         public void ResetSliderValue()
         {
             recordedCureSliderValue = 0;
-            slider.fillAmount = 0;
-            multipleText.text = " ";
+            endGameSectionController.fillImage.fillAmount = 0;
+            endGameSectionController.multipleText.text = " ";
         }
 
         public void SetRecordedSliderValue(float value)
@@ -152,17 +167,31 @@ public class EndGameSectionController : MonoBehaviour
         }
         public void IncreaseCureBottleAmount()
         {
-            recordedCureSliderValue *= 0.2f;
-            //Debug.Log("sliderValue" + recordedCureSliderValue.ToString());
-            //Debug.Log("liquid" + liquedRenderer.material.GetFloat("_Fill"));
-            liquedRenderer.material.SetFloat("_Fill", recordedCureSliderValue);
-            //Debug.Log("Fill liquid" + liquedRenderer.material.GetFloat("_Fill"));
-            SetRecordedSliderValue(recordedCureSliderValue);
+            recordedCureSliderValue *= 0.05f;
+            Debug.Log("slider" + recordedCureSliderValue);
+            endGameSectionController.StartCoroutine(SmoothFillIncrease(recordedCureSliderValue));
+        }
+
+        private IEnumerator SmoothFillIncrease(float targetValue)
+        {
+            float elapsedTime = 0;
+            float startValue = liquedRenderer.material.GetFloat("_Fill");
+            while (elapsedTime < smoothTime)
+            {
+                float newValue = Mathf.Lerp(startValue, targetValue, elapsedTime / smoothTime);
+                liquedRenderer.material.SetFloat("_Fill", newValue);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            liquedRenderer.material.SetFloat("_Fill", targetValue);
+            Debug.Log("SetLiquid" + liquedRenderer.material.GetFloat("_Fill"));
+            SetRecordedSliderValue(targetValue);
         }
         public void BeginSavedCureAmount()
         {
             var cureSliderValue = GetRecordedSliderValue();
             liquedRenderer.material.SetFloat("_Fill", cureSliderValue);
+            Debug.Log("Getliquid" + liquedRenderer.material.GetFloat("_Fill"));
         }
     }
 
