@@ -63,6 +63,7 @@
     <Compile Include="Assets\MiddleSequence\MiddleSequenceController.cs" />
     <Compile Include="Assets\MiddleSequence\ShootingTargetController.cs" />
     <Compile Include="Assets\EndGameSection\EndGameSectionController.cs" />
+    <Compile Include="Assets\UIAssets\IncremantelPanel\IncrementsController.cs" />
     <Compile Include="Assets\UIAssets\UIManager.cs" />
     <Compile Include="Assets\Player\CameraZoneSwitcher.cs" />
     <Compile Include="Assets\Player\Bullet\ObjectPool\ObjectPool.cs" />

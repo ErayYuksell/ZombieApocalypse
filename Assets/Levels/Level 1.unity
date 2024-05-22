@@ -1362,11 +1362,6 @@ Transform:
   - {fileID: 622495049}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &751626405 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6060325590833247735, guid: 39be671950a273b4c826017b70f2609c, type: 3}
-  m_PrefabInstance: {fileID: 4594563806266760742}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &761515993 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 610618212258687268, guid: b4190041279e80f418189fadbf7dbde3, type: 3}
@@ -3941,10 +3936,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6532769057488467635, guid: b4190041279e80f418189fadbf7dbde3, type: 3}
-      propertyPath: cureProgressModel.liquedRenderer
-      value: 
-      objectReference: {fileID: 751626405}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

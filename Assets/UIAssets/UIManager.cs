@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,20 +16,23 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject cureProgressPanel;
+    [SerializeField] GameObject IncrementalMenu;
     [Space]
     [SerializeField] TextMeshProUGUI gameOverLevelText;
     [SerializeField] TextMeshProUGUI gameOverAntibodyText;
     [Space]
-    int gameOverTextValue = 1;
-    public Image fillImage;
+    public Image fillImage; // DontDestroyOnLoad ile kullanirken sikinti cikiyordu o yuzden bu sekilde kullandim
     public TextMeshProUGUI multipleText;
-    
+    [Space]
+    [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI antibodyCount;
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -38,39 +42,43 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        gameOverLevelText.text = "Level " + gameOverTextValue.ToString();
+        //FirstLevelCheck();
+        StartInfo();
     }
+
+    // Start Panel
     public void CloseStartPanel() // button icinde calisiyor 
     {
         Time.timeScale = 1.0f;
         startPanel.SetActive(false);
         cureProgressPanel.SetActive(true);
+        IncrementalMenu.SetActive(false);
     }
-    /// <summary>
-    /// GameOverPanelCode
-    /// </summary>
+    public void StartInfo()
+    {
+        levelText.text = SceneManager.GetActiveScene().name;
+        antibodyCount.text = Mathf.Round(PlayerPrefs.GetFloat("SliderValue") * 20).ToString();
+    }
+    // GameOverPanelCode
+
     public void OpenGameOverPanel()
     {
         gameOverPanel.SetActive(true);
         cureProgressPanel.SetActive(false);
+        
         gameOverAntibodyText.text = Mathf.Round(PlayerPrefs.GetFloat("SliderValue") * 20).ToString();
         gameOverLevelText.text = SceneManager.GetActiveScene().name;
     }
-    public void CloseGameOverPanel()
-    {
-        gameOverPanel.SetActive(false);
-        cureProgressPanel.SetActive(true);
-    }
-
     public void GoToTheNextLevel()
     {
-        CloseGameOverPanel();
+        gameOverPanel.SetActive(false);
+        Time.timeScale = 0f;
         EndGameSectionController.Instance.cureProgressModel.ResetSliderValue();
         GameManager.Instance.GoToTheNextLevel();
     }
-    /// <summary>
-    /// PausePanel
-    /// </summary>
+
+    // PausePanel
+
     public void OpenPausePanel()
     {
         cureProgressPanel.SetActive(false);
@@ -79,21 +87,26 @@ public class UIManager : MonoBehaviour
     }
     public void ClosePausePanel()
     {
+        pausePanel.SetActive(false);
         cureProgressPanel.SetActive(true);
         Time.timeScale = 1f;
-        pausePanel.SetActive(false);
     }
     public void ContinueGame()
     {
-        Time.timeScale = 1f;
         ClosePausePanel();
+        Time.timeScale = 1f;
     }
     public void RestartGame()
     {
         GameManager.Instance.LoadSavedLevel();
-        pausePanel.SetActive(false);
-        startPanel.SetActive(false);
-        Time.timeScale = 1f;
     }
-  
+    // Incremental Menu
+
+    public void FirstLevelCheck()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            IncrementalMenu.SetActive(false);
+        }
+    }
 }

@@ -41,11 +41,6 @@ public class PlayerController : MonoBehaviour
         Editor();
     }
 
-    public void StartFireCaroutine()
-    {
-        StartCoroutine(fireModule.SetFire());
-    }
-
     [Serializable]
     public class MovementModule
     {
@@ -187,7 +182,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerController.movementModule.canMove = true;
                 playerController.fireModule.canFire = true;
-                playerController.StartFireCaroutine();
+                playerController.StartCoroutine(playerController.fireModule.SetFire());
             });
         }
     }
