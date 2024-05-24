@@ -25,13 +25,15 @@ public class IncrementsController : MonoBehaviour
     [SerializeField] TextMeshProUGUI costText;
 
     int levelValue = 1;
-    int costValue = 1;
+    public int costValue = 1;
 
     [SerializeField] AnimationClip notEnoughMoneyAnim;
     [SerializeField] AnimationClip upgradeEffectAnim;
 
     UIManager UImanager;
     Animator animator;
+
+    bool checkCostDone = false;
     private void Start()
     {
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
@@ -45,6 +47,10 @@ public class IncrementsController : MonoBehaviour
         GetButtonText();
         levelText.text = "Level " + levelValue.ToString();
         costText.text = costValue.ToString();
+    }
+    private void Update()
+    {
+        CheckButtonCost();
     }
     public void HandleButtonClick(ButtonTypes buttonType)
     {
@@ -71,7 +77,7 @@ public class IncrementsController : MonoBehaviour
     }
     private void HandleStrengthButton()
     {
-        if (UImanager.GetAntibodyCount() > 0)
+        if (UImanager.GetAntibodyCount() >= costValue)
         {
             animator.Play(upgradeEffectAnim.name);
             UImanager.SetAntibodyCount(-costValue);
@@ -88,7 +94,7 @@ public class IncrementsController : MonoBehaviour
 
     private void HandleRateButton()
     {
-        if (UImanager.GetAntibodyCount() > 0)
+        if (UImanager.GetAntibodyCount() >= costValue)
         {
             animator.Play(upgradeEffectAnim.name);
             UImanager.SetAntibodyCount(-costValue);
@@ -105,7 +111,7 @@ public class IncrementsController : MonoBehaviour
 
     private void HandleRangeButton()
     {
-        if (UImanager.GetAntibodyCount() > 0)
+        if (UImanager.GetAntibodyCount() >= costValue)
         {
             animator.Play(upgradeEffectAnim.name);
             UImanager.SetAntibodyCount(-costValue);
@@ -152,7 +158,18 @@ public class IncrementsController : MonoBehaviour
         levelValue = PlayerPrefs.GetInt(GetLevelKey(), 1);
         costValue = PlayerPrefs.GetInt(GetCostKey(), 1);
     }
-   
+
+    // button cost kontrol
+
+    public void CheckButtonCost()
+    {
+        if (UImanager.GetAntibodyCount() < costValue && !checkCostDone)
+        {
+            gameObject.GetComponent<Button>().enabled = false;
+            animator.Play(notEnoughMoneyAnim.name);
+        }
+    }
+
     public void PlaynotEnoughMoneyAnim()
     {
         animator.Play(notEnoughMoneyAnim.name);

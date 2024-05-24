@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
     [Space]
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI antibodyCountText;
-    float antibodyCount = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
     }
     public void SetAntibodyCount(float value)
     {
-        antibodyCount = GetAntibodyCount();
+        var antibodyCount = GetAntibodyCount();
         antibodyCount += value;
 
         if (antibodyCount < 0)
@@ -88,7 +88,7 @@ public class UIManager : MonoBehaviour
         var antibody = PlayerPrefs.GetFloat("SliderValue");
         SetAntibodyCount(antibody);
 
-        gameOverAntibodyText.text = antibodyCount.ToString();
+        gameOverAntibodyText.text = antibody.ToString();
         gameOverLevelText.text = SceneManager.GetActiveScene().name;
     }
     public void GoToTheNextLevel()

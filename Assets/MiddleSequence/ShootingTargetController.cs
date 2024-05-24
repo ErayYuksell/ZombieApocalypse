@@ -26,8 +26,8 @@ public class ShootingTargetController : MonoBehaviour
     PlayerController playerController;
     GameObject playerObject;
     bool canShoot = false;
-   
 
+    bool sequenceCloseDone = false;
     private void Start()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -36,11 +36,15 @@ public class ShootingTargetController : MonoBehaviour
         GetImage();
         GetTargetValue();
     }
+    private void Update()
+    {
+        CloseMiddleSequence();
+    }
     public void SetCanShoot()
     {
         canShoot = true;
     }
-   
+
     public void GetTargetValue()
     {
         var gunWrapper = GetGunClass(gunType);
@@ -63,13 +67,34 @@ public class ShootingTargetController : MonoBehaviour
         }
 
         var gunWrapper = GetGunClass(gunType);
-        if (gunWrapper.targetValue <= 0)
-        {
-            playerController.middleSequenceModule.ChangeWeapon(gunType);
-            playerController.middleSequenceModule.MiddleSequenceReverse();
-            gameObject.GetComponentInParent<MiddleSequenceController>().gameObject.SetActive(false);
-        }
+
+        //if (gunWrapper.targetValue <= 0)
+        //{
+        //    playerController.middleSequenceModule.ChangeWeapon(gunType);
+        //    playerController.middleSequenceModule.MiddleSequenceReverse();
+        //    gameObject.GetComponentInParent<MiddleSequenceController>().gameObject.SetActive(false);
+        //}
         gunWrapper.targetValue -= value;
+
+        if (gunWrapper.targetValue < 0)
+        {
+            gunWrapper.targetValue = 0;
+        }
         targetValueText.text = gunWrapper.targetValue.ToString("f0");
+    }
+    public void CloseMiddleSequence() // bir takim sikintilar bulunmakta ??????????
+    {
+        if (!sequenceCloseDone)
+        {
+            var gunWrapper = GetGunClass(gunType);
+
+            if (gunWrapper.targetValue <= 0)
+            {
+                sequenceCloseDone = true;
+                playerController.middleSequenceModule.ChangeWeapon(gunType);
+                playerController.middleSequenceModule.MiddleSequenceReverse();
+                gameObject.GetComponentInParent<MiddleSequenceController>().gameObject.SetActive(false);
+            }
+        }
     }
 }

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 18
+  controlID: 111
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,8 +219,8 @@ MonoBehaviour:
     y: 0
     width: 632.80005
     height: 740.4
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -247,8 +247,8 @@ MonoBehaviour:
     y: 0
     width: 324.79993
     height: 740.4
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -273,8 +273,8 @@ MonoBehaviour:
     y: 0
     width: 240.80005
     height: 740.4
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -319,7 +319,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 9635fdffa04bfdff2e67fdff348afeff3e8afeff988afeffb894feff4eb0feffa84effff0c4fffffe855ffff5871ffff0efbffffc46c0200
+      m_ExpandedIDs: 0efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -388,7 +388,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Levels
+    - Assets/Player
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -396,16 +396,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Levels
+  - Assets/Player
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\erayy\OneDrive\Desktop\Unity Game\ZombieApocalypse
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 108c0000
-    m_LastClickedID: 35856
-    m_ExpandedIDs: 00000000948b0000968b0000988b00009a8b00009c8b00009e8b0000a08b0000a28b0000a48b0000a68b0000a88b0000aa8b0000ac8b0000ae8b0000b08b0000b28b0000b48b0000b68b0000b88b0000ba8b0000bc8b0000be8b0000c08b0000c28b0000c48b0000c68b0000c88b0000ca8b0000cc8b0000ce8b0000d08b0000d28b0000d48b0000d68b0000d88b0000da8b0000dc8b0000de8b0000e08b0000e28b0000e48b0000e68b0000e88b0000ea8b0000ec8b0000ee8b0000f08b0000008c0000228c0000
+    scrollPos: {x: 0, y: 91.79999}
+    m_SelectedIDs: 248c0000
+    m_LastClickedID: 35876
+    m_ExpandedIDs: 00000000a08b0000a28b0000a48b0000a68b0000a88b0000aa8b0000ac8b0000ae8b0000b08b0000b28b0000b48b0000b68b0000b88b0000ba8b0000bc8b0000be8b0000c08b0000c28b0000c48b0000c68b0000c88b0000ca8b0000cc8b0000ce8b0000d08b0000d28b0000d48b0000d68b0000d88b0000da8b0000dc8b0000de8b0000e08b0000e28b0000e48b0000e68b0000e88b0000ea8b0000ec8b0000ee8b0000f08b0000f28b0000f48b0000f68b0000f88b0000fa8b0000fc8b00000e8c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -433,7 +433,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000948b0000968b0000988b00009a8b00009c8b00009e8b0000a08b0000a28b0000a48b0000a68b0000a88b0000aa8b0000ac8b0000ae8b0000b08b0000b28b0000b48b0000b68b0000b88b0000ba8b0000bc8b0000be8b0000c08b0000c28b0000c48b0000c68b0000c88b0000ca8b0000cc8b0000ce8b0000d08b0000d28b0000d48b0000d68b0000d88b0000da8b0000dc8b0000de8b0000e08b0000e28b0000e48b0000e68b0000e88b0000ea8b0000ec8b0000ee8b0000f08b0000
+    m_ExpandedIDs: 00000000a08b0000a28b0000a48b0000a68b0000a88b0000aa8b0000ac8b0000ae8b0000b08b0000b28b0000b48b0000b68b0000b88b0000ba8b0000bc8b0000be8b0000c08b0000c28b0000c48b0000c68b0000c88b0000ca8b0000cc8b0000ce8b0000d08b0000d28b0000d48b0000d68b0000d88b0000da8b0000dc8b0000de8b0000e08b0000e28b0000e48b0000e68b0000e88b0000ea8b0000ec8b0000ee8b0000f08b0000f28b0000f48b0000f68b0000f88b0000fa8b0000fc8b0000fe8b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -460,22 +460,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000b4630000e0750000d87500001e620000ee61000072620000fe6a00009c6a00004e6c00009a79000092790000ec820000b2750000067e0000fcc7000006990000f2980000ee980000f6980000fa98000002990000e6980000ea980000e2980000bca90000f6a900009edf000022df00005edc0000f2e100009ede00006e6c000002760000067600000a7600001e760000167600009e74000002a8000008f600002af600002ef60000c8d100002a8b0000c2520100b2360300b6360300a6ff0100a6010200142f0100983d01009c580100a4580100546001005c600100907500008475000080750000887500008c750000867500008a750000786d00007a6d00009cbc000020d900000cd9000008d9000024d9000000d9000028d90000a29c0000b29c0000f2b60000d8b60000feb60000f6b60000e6b60000e6130100de130100c2130100ce130100ca130100c6130100d8cb0000d2cb0000cacb0000cecb000068ef000026f000002cf00000966e0000ce0f010012280100222801004c280100ec4501003a4d01002af90000804f0100844f0100e0630100e4730000867e00007071000016f20000606e000076590000f0350100f2600000205a000046590000e48700000e650000086600009e68000014680000ba990000f0810000f281000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Level 2
-      m_OriginalName: Level 2
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 157884
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 8}
     m_CreateAssetUtility:
