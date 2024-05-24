@@ -42,8 +42,7 @@ public class IncrementsController : MonoBehaviour
 
         UImanager = UIManager.Instance;
 
-        levelValue = PlayerPrefs.GetInt("LevelValue", 1);
-        costValue = PlayerPrefs.GetInt("CostValue", 1);
+        GetButtonText();
         levelText.text = "Level " + levelValue.ToString();
         costText.text = costValue.ToString();
     }
@@ -125,13 +124,35 @@ public class IncrementsController : MonoBehaviour
     {
         levelValue++;
         costValue++;
-        PlayerPrefs.SetInt("LevelValue", levelValue);
-        PlayerPrefs.SetInt("CostValue", costValue);
+        SetButtonText();
         levelText.text = "Level " + levelValue.ToString();
         costText.text = costValue.ToString();
         UImanager.UpdateAntibodyText();
     }
 
+    // her button texti icin farkli kayit olusturmam lazim
+    private string GetLevelKey()
+    {
+        return "LevelValue" + buttonType.ToString();
+    }
+
+    private string GetCostKey()
+    {
+        return "CostValue" + buttonType.ToString();
+    }
+
+    public void SetButtonText()
+    {
+        PlayerPrefs.SetInt(GetLevelKey(), levelValue);
+        PlayerPrefs.SetInt(GetCostKey(), costValue);
+    }
+
+    public void GetButtonText()
+    {
+        levelValue = PlayerPrefs.GetInt(GetLevelKey(), 1);
+        costValue = PlayerPrefs.GetInt(GetCostKey(), 1);
+    }
+   
     public void PlaynotEnoughMoneyAnim()
     {
         animator.Play(notEnoughMoneyAnim.name);
