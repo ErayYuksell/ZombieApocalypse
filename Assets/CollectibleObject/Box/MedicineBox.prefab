@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34da7eeac18ed7c41a268cb1a0362785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cureSliderValue: 0.2
+  cureSliderValue: 1
 --- !u!1 &2633899701373292716
 GameObject:
   m_ObjectHideFlags: 0

@@ -138,5 +138,5 @@ MonoBehaviour:
     antiBodyNumber: 3
   antiBodyDropModule:
     antiBody: {fileID: 2011123931116026783, guid: 91ea2e8488964e346ab8a419e884a850, type: 3}
-    cureSliderValue: 0.3
+    cureSliderValue: 1
     antiBodyList: []

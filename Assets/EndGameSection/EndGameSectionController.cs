@@ -114,6 +114,7 @@ public class EndGameSectionController : MonoBehaviour
         [Space]
         int multipleTextValue = 1;
         float recordedCureSliderValue = 0;
+        float recordedSliderValueScale = 0.05f; // kaydedilen slider degeri 4 5 falan oluyor bottle a direk o degeri yollasam fullenir kucultup yollamam lazim
         public float smoothTime = 0.5f; // Yumuþak geçiþ süresi
 
         public void Init(EndGameSectionController endGameSectionController)
@@ -167,8 +168,9 @@ public class EndGameSectionController : MonoBehaviour
         }
         public void IncreaseCureBottleAmount()
         {
-            recordedCureSliderValue *= 0.05f;
-            Debug.Log("slider" + recordedCureSliderValue);
+            SetRecordedSliderValue(recordedCureSliderValue);
+            recordedCureSliderValue *= recordedSliderValueScale;
+            //Debug.Log("slider" + recordedCureSliderValue);
             endGameSectionController.StartCoroutine(SmoothFillIncrease(recordedCureSliderValue));
         }
 
@@ -184,14 +186,13 @@ public class EndGameSectionController : MonoBehaviour
                 yield return null;
             }
             liquedRenderer.material.SetFloat("_Fill", targetValue);
-            Debug.Log("SetLiquid" + liquedRenderer.material.GetFloat("_Fill"));
-            SetRecordedSliderValue(targetValue);
+            //Debug.Log("SetLiquid" + liquedRenderer.material.GetFloat("_Fill"));
         }
         public void BeginSavedCureAmount()
         {
-            var cureSliderValue = GetRecordedSliderValue();
+            var cureSliderValue = GetRecordedSliderValue() * recordedSliderValueScale;
             liquedRenderer.material.SetFloat("_Fill", cureSliderValue);
-            Debug.Log("Getliquid" + liquedRenderer.material.GetFloat("_Fill"));
+            //Debug.Log("Getliquid" + liquedRenderer.material.GetFloat("_Fill"));
         }
     }
 

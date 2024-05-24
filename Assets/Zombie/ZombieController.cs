@@ -139,7 +139,7 @@ public class ZombieController : MonoBehaviour
     {
         ZombieController zombieController;
         public GameObject antiBody;
-        public float cureSliderValue;
+        public float cureSliderValue = 1;
         public List<GameObject> antiBodyList = new List<GameObject>();
         public void Init(ZombieController zombieController)
         {

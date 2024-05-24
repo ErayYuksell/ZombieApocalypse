@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-
+        fireModule.BasesWeaponValues();
         StartCoroutine(fireModule.SetFire());
     }
 
@@ -95,13 +95,13 @@ public class PlayerController : MonoBehaviour
             switch (gateType)
             {
                 case GateType.Range:
-                    playerController.fireModule.range += playerController.fireModule.rateScale * gateValue;
+                    playerController.fireModule.SetFireRate(playerController.fireModule.rateScale * gateValue);
                     break;
                 case GateType.Rate:
-                    playerController.fireModule.rate -= playerController.fireModule.rangeScale * gateValue;
+                    playerController.fireModule.SetFireRange(playerController.fireModule.rangeScale * gateValue);
                     break;
                 case GateType.Power:
-                    playerController.fireModule.power += playerController.fireModule.powerScale * gateValue;
+                    playerController.fireModule.SetFireStrength(playerController.fireModule.powerScale * gateValue);
                     break;
                 default:
                     break;
@@ -114,9 +114,9 @@ public class PlayerController : MonoBehaviour
     {
         PlayerController playerController;
 
-        [Range(0.1f, 1)] public float rate = 0.4f;
-        [Range(8, 20)] public float range = 15;
-        [Range(0.5f, 2)] public float power = 1;
+        [Range(0.1f, 1), SerializeField] float rate = 0.4f;
+        [Range(8, 20), SerializeField] float range = 15;
+        [Range(0.5f, 2), SerializeField] float strength = 1;
         [Space]
         public float rateScale;
         public float rangeScale;
@@ -132,6 +132,36 @@ public class PlayerController : MonoBehaviour
             this.playerController = playerController;
         }
 
+        public void BasesWeaponValues()
+        {
+            rate = PlayerPrefs.GetFloat("FireRate", 0.6f);
+            range = PlayerPrefs.GetFloat("FireRange", 9);
+            strength = PlayerPrefs.GetFloat("FireStrength", 1);
+        }
+        public void SetFireRate(float value)
+        {
+            rate += value;
+        }
+        public float GetFireRate()
+        {
+            return rate;
+        }
+        public void SetFireRange(float value)
+        {
+            range += value;
+        }
+        public float GetFireRange()
+        {
+            return range;
+        }
+        public void SetFireStrength(float value)
+        {
+            strength += value;
+        }
+        public float GetFireStrength()
+        {
+            return strength;
+        }
         public IEnumerator SetFire()
         {
             while (canFire)
@@ -149,10 +179,7 @@ public class PlayerController : MonoBehaviour
                 yield return new WaitForSeconds(rate);
             }
         }
-        public void SetFireRate(float value)
-        {
-            rate += value;
-        }
+
         public void CloseTheAllBullet()
         {
             var objectPoolScript = objectPool.GetComponent<ObjectPool>();
@@ -262,17 +289,17 @@ public class PlayerController : MonoBehaviour
             switch (gunType)
             {
                 case GunType.AK47:
-                    playerController.fireModule.power += AKPower;
+                    playerController.fireModule.SetFireStrength(AKPower);
                     weaponList[0].SetActive(true);
                     break;
                 case GunType.MP5:
-                    playerController.fireModule.rate *= MP5Rate;
-                    playerController.fireModule.power -= MP5Power;
+                    playerController.fireModule.SetFireRate(MP5Rate); // carpiydi normalde duzelt
+                    playerController.fireModule.SetFireStrength(MP5Power); // buda eksiydi
                     weaponList[1].SetActive(true);
                     break;
                 case GunType.ShotGun:
-                    playerController.fireModule.rate *= ShotGunRate;
-                    playerController.fireModule.power += ShotGunPower;
+                    playerController.fireModule.SetFireRate(ShotGunRate); // carpi
+                    playerController.fireModule.SetFireStrength(ShotGunPower);
                     weaponList[2].SetActive(true);
 
                     playerController.fireModule.isShotGunActive = true;

@@ -25,24 +25,23 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI multipleText;
     [Space]
     [SerializeField] TextMeshProUGUI levelText;
-    [SerializeField] TextMeshProUGUI antibodyCount;
-
+    [SerializeField] TextMeshProUGUI antibodyCountText;
+    float antibodyCount = 0;
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(Instance);
+            Destroy(this);
         }
     }
 
     private void Start()
     {
-        //FirstLevelCheck();
+        FirstLevelCheck();
         StartInfo();
     }
 
@@ -57,7 +56,26 @@ public class UIManager : MonoBehaviour
     public void StartInfo()
     {
         levelText.text = SceneManager.GetActiveScene().name;
-        antibodyCount.text = Mathf.Round(PlayerPrefs.GetFloat("SliderValue") * 20).ToString();
+        antibodyCountText.text = GetAntibodyCount().ToString();
+    }
+    public void UpdateAntibodyText()
+    {
+        antibodyCountText.text = GetAntibodyCount().ToString();
+    }
+    public void SetAntibodyCount(float value)
+    {
+        antibodyCount = GetAntibodyCount();
+        antibodyCount += value;
+
+        if (antibodyCount < 0)
+        {
+            antibodyCount = 0;
+        }
+        PlayerPrefs.SetFloat("AntibodyCount", antibodyCount);
+    }
+    public float GetAntibodyCount()
+    {
+        return PlayerPrefs.GetFloat("AntibodyCount");
     }
     // GameOverPanelCode
 
@@ -65,8 +83,12 @@ public class UIManager : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         cureProgressPanel.SetActive(false);
-        
-        gameOverAntibodyText.text = Mathf.Round(PlayerPrefs.GetFloat("SliderValue") * 20).ToString();
+
+        //var antibody = Mathf.Round(PlayerPrefs.GetFloat("SliderValue") * 20);
+        var antibody = PlayerPrefs.GetFloat("SliderValue");
+        SetAntibodyCount(antibody);
+
+        gameOverAntibodyText.text = antibodyCount.ToString();
         gameOverLevelText.text = SceneManager.GetActiveScene().name;
     }
     public void GoToTheNextLevel()

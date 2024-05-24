@@ -6,7 +6,7 @@ using UnityEngine;
 public class MedicineBoxController : MonoBehaviour
 {
     GameObject antibody;
-    [SerializeField] float cureSliderValue = 0.2f;
+    [SerializeField] float cureSliderValue = 1f;
     private void Start()
     {
         //antibody = GameObject.FindGameObjectWithTag("Antibody"); // bu kodu begenmedim kendi childi olan objeyi daha rahat sekilde bulabilmem lazim /// cozuldu

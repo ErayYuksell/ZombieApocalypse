@@ -22,7 +22,7 @@ public class BulletController : MonoBehaviour
     void CalculateBulletDistance()
     {
         var distance = Vector3.Distance(gameObject.transform.position, firePoint.position);
-        var range = playerController.fireModule.range;
+        var range = playerController.fireModule.GetFireRange();
         if (distance > range)
         {
             gameObject.SetActive(false);
@@ -40,28 +40,28 @@ public class BulletController : MonoBehaviour
         {
             gameObject.SetActive(false);
             var gateController = other.GetComponent<GateController>();
-            gateController.IncreaseGateValue(playerController.fireModule.power);
+            gateController.IncreaseGateValue(playerController.fireModule.GetFireStrength());
             gateController.PLayHitAnim();
         }
         if (other.CompareTag("Zombie"))
         {
             gameObject.SetActive(false);
             var zombieController = other.GetComponent<ZombieController>();
-            zombieController.ShootZombieCounter(playerController.fireModule.power);
+            zombieController.ShootZombieCounter(playerController.fireModule.GetFireStrength());
         }
         if (other.CompareTag("BreakableWall"))
         {
             gameObject.SetActive(false);
             var breakableController = other.GetComponent<BreakableWallController>();
             //breakableController.WriteWallText();
-            breakableController.PartsMovement(playerController.fireModule.power);
+            breakableController.PartsMovement(playerController.fireModule.GetFireStrength());
         }
         if (other.CompareTag("ShootingTarget"))
         {
             gameObject.SetActive(false);
             //var middleSequenceController = other.GetComponentInParent<MiddleSequenceController>();
             var shootingTargetController = other.GetComponent<ShootingTargetController>();
-            shootingTargetController.DecreaseTargetValue(playerController.fireModule.power);
+            shootingTargetController.DecreaseTargetValue(playerController.fireModule.GetFireStrength());
         }
     }
 }
