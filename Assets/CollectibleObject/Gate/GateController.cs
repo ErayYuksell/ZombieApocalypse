@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum GateType { Range, Rate, Power, };
+public enum GateType { Range, Rate, Strength, };
 public class GateController : MonoBehaviour
 {
     public GateType gateType;
@@ -53,7 +53,7 @@ public class GateController : MonoBehaviour
             case GateType.Rate:
                 WriteGateText(gateType);
                 break;
-            case GateType.Power:
+            case GateType.Strength:
                 WriteGateText(gateType);
                 break;
             default:

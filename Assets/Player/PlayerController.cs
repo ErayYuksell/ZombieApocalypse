@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
                 case GateType.Rate:
                     playerController.fireModule.SetFireRange(playerController.fireModule.rangeScale * gateValue);
                     break;
-                case GateType.Power:
+                case GateType.Strength:
                     playerController.fireModule.SetFireStrength(playerController.fireModule.powerScale * gateValue);
                     break;
                 default:

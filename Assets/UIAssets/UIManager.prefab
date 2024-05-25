@@ -111,10 +111,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f46a3fee864cceb4d84fda0f0c6f99e4, type: 2}
+  m_sharedMaterial: {fileID: -4877128216070511946, guid: f46a3fee864cceb4d84fda0f0c6f99e4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -320,10 +320,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Level 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f46a3fee864cceb4d84fda0f0c6f99e4, type: 2}
+  m_sharedMaterial: {fileID: -4877128216070511946, guid: f46a3fee864cceb4d84fda0f0c6f99e4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1057,6 +1057,7 @@ MonoBehaviour:
   levelText: {fileID: 5886421551855228938}
   costText: {fileID: 6897139005612265590}
   notEnoughMoneyAnim: {fileID: 7400000, guid: f1b695ba1bed0d805b6a9e9d2786a57f, type: 2}
+  upgradeEffectAnim: {fileID: 7400000, guid: 5b518f0dbf855987683da3d395543e6b, type: 2}
 --- !u!114 &2643763135677929151 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 788844812434819522, guid: 47b12ea9b34c7ca4c90d1022090797cb, type: 3}
@@ -1089,6 +1090,7 @@ MonoBehaviour:
   levelText: {fileID: 3026930015953337210}
   costText: {fileID: 2643763135677929151}
   notEnoughMoneyAnim: {fileID: 7400000, guid: f1b695ba1bed0d805b6a9e9d2786a57f, type: 2}
+  upgradeEffectAnim: {fileID: 7400000, guid: 5b518f0dbf855987683da3d395543e6b, type: 2}
 --- !u!114 &3026930015953337210 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 307320586803143687, guid: 47b12ea9b34c7ca4c90d1022090797cb, type: 3}
@@ -1121,6 +1123,7 @@ MonoBehaviour:
   levelText: {fileID: 5788335779633067075}
   costText: {fileID: 3325414401930849227}
   notEnoughMoneyAnim: {fileID: 7400000, guid: f1b695ba1bed0d805b6a9e9d2786a57f, type: 2}
+  upgradeEffectAnim: {fileID: 7400000, guid: 5b518f0dbf855987683da3d395543e6b, type: 2}
 --- !u!224 &3181946444031067765 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 174103076054456584, guid: 47b12ea9b34c7ca4c90d1022090797cb, type: 3}
