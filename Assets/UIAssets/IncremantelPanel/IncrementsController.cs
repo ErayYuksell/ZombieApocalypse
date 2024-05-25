@@ -25,7 +25,7 @@ public class IncrementsController : MonoBehaviour
     [SerializeField] TextMeshProUGUI costText;
 
     int levelValue = 1;
-    public int costValue = 1;
+    int costValue = 1;
 
     [SerializeField] AnimationClip notEnoughMoneyAnim;
     [SerializeField] AnimationClip upgradeEffectAnim;
@@ -33,7 +33,8 @@ public class IncrementsController : MonoBehaviour
     UIManager UImanager;
     Animator animator;
 
-    bool checkCostDone = false;
+    bool checkCost = false;
+    //bool checkZero = false;
     private void Start()
     {
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
@@ -82,7 +83,7 @@ public class IncrementsController : MonoBehaviour
             animator.Play(upgradeEffectAnim.name);
             UImanager.SetAntibodyCount(-costValue);
 
-            Debug.Log("Strength button clicked");
+            //Debug.Log("Strength button clicked");
             var strength = PlayerPrefs.GetFloat("FireStrength", 1);
             strength += increaseStrength;
             PlayerPrefs.SetFloat("FireStrength", strength);
@@ -99,7 +100,7 @@ public class IncrementsController : MonoBehaviour
             animator.Play(upgradeEffectAnim.name);
             UImanager.SetAntibodyCount(-costValue);
 
-            Debug.Log("Rate button clicked");
+            //Debug.Log("Rate button clicked");
             var rate = PlayerPrefs.GetFloat("FireRate", 0.6f);
             rate += increaseRate;
             PlayerPrefs.SetFloat("FireRate", rate);
@@ -116,7 +117,7 @@ public class IncrementsController : MonoBehaviour
             animator.Play(upgradeEffectAnim.name);
             UImanager.SetAntibodyCount(-costValue);
 
-            Debug.Log("Range button clicked");
+            //Debug.Log("Range button clicked");
             var range = PlayerPrefs.GetFloat("FireRange", 9);
             range += increaseRange;
             PlayerPrefs.SetFloat("FireRange", range);
@@ -161,12 +162,21 @@ public class IncrementsController : MonoBehaviour
 
     // button cost kontrol
 
-    public void CheckButtonCost()
+    public void CheckButtonCost() // bu fonksiyonda antibody icin hem cost value hemde 0 olma durumunu kontrol ediyorum 
     {
-        if (UImanager.GetAntibodyCount() < costValue && !checkCostDone)
+        //if (UImanager.GetAntibodyCount() <= 0 && !checkZero) // gerek yok gibi zaten costValue en az 1 olacagi icin toplam miktar 0 sa hicbiri acilmaz 
+        //{
+        //    Debug.Log("Tuh amk para 0");
+        //    gameObject.GetComponent<Button>().enabled = false;
+        //    animator.Play(notEnoughMoneyAnim.name);
+        //    checkZero = true;
+        //}
+        if (UImanager.GetAntibodyCount() < costValue && !checkCost)
         {
+            Debug.Log("not enough antibody");
             gameObject.GetComponent<Button>().enabled = false;
             animator.Play(notEnoughMoneyAnim.name);
+            checkCost = true;
         }
     }
 

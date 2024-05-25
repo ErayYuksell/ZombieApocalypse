@@ -103,6 +103,11 @@ public class ZombieController : MonoBehaviour
 
     public void OvercomeObstacles() // zombiler engellere denk geldiginde bulundugu konuma gore engeli atlatacak
     {
+        if (transform == null) // Dotween hata verdigi icin yazmak zorunda kaldim 
+        {
+            return;
+        }
+
         if (transform.position.x > 0)
         {
             transform.DOMoveX(transform.position.x - UnityEngine.Random.Range(3, 5), 3);

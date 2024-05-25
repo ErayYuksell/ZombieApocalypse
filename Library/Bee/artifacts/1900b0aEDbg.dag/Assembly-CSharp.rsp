@@ -380,7 +380,6 @@
 "Assets/Player/Bullet/ObjectPool/ObjectPool.cs"
 "Assets/Player/CameraZoneSwitcher.cs"
 "Assets/Player/PlayerController.cs"
-"Assets/UIAssets/IncremantelPanel/IncrementButtonsController.cs"
 "Assets/UIAssets/IncremantelPanel/IncrementsController.cs"
 "Assets/UIAssets/UIManager.cs"
 "Assets/Zombie/ZombieController.cs"
