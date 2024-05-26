@@ -43,65 +43,121 @@ public class EndGameSectionController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            labRoomListPlayerPrefs.ActivatingRandomLabStuff();
+            //labRoomListPlayerPrefs.ActivatingRandomLabStuff();
+            labRoomListPlayerPrefs.ActivatingSequentialLabStuff();
             var playerController = other.GetComponent<PlayerController>();
             playerController.endSectionModule.PlayerEndSectionMovement();
 
             cureProgressModel.IncreaseCureBottleAmount();
         }
     }
+    
+    //[Serializable]
+    //public class LabRoomListPlayerPrefs
+    //{
+    //    EndGameSectionController endGameSectionController;
+    //    public List<GameObject> labRoomListFalse = new List<GameObject>();
+    //    public List<int> intList = new List<int>();
+    //    public void Init(EndGameSectionController endGameSectionController)
+    //    {
+    //        this.endGameSectionController = endGameSectionController;
+    //    }
 
-    [Serializable]
+    //    public void ActivatingRandomLabStuff()
+    //    {
+    //        int randomNumber = UnityEngine.Random.Range(0, labRoomListFalse.Count);
+    //        var obj = labRoomListFalse[randomNumber];
+    //        //Debug.Log(randomNumber); 
+    //        // burada listeden obj yi cikarmiyorum ayni objleri dondurebilir bir ara bak ????????
+    //        SaveActiveSelfTrue(randomNumber);
+    //        obj.SetActive(true);
+    //    }
+    //    public void SaveActiveSelfTrue(int objIndex)
+    //    {
+    //        intList.Add(objIndex);
+    //        // gelen indexi intListe ekliyorum daha sonra intListtte kac eleman varsa kayit edip for icinde count kadar dongu sagliyorum
+    //        //obj0 = 5 obj1 = 2 seklinde index degerlerini her engGameSectiona deyince kayit ediyorum
+
+    //        PlayerPrefs.SetInt("intListCount", intList.Count);
+    //        for (int i = 0; i < intList.Count; i++)
+    //        {
+
+    //            PlayerPrefs.SetInt("obj" + i, intList[i]);
+    //        }
+    //    }
+    //    public void GetActiveSelfTrue()
+    //    {
+    //        // oyunu kapatip actigimda calisir sadece cunku DontDestroyOnLoad kullaniyorum 
+    //        // listCountu her eleman eklerken kayit ediyordum zaten bu liste sayisi dongunun kac kere calisacagini belirleyecek
+    //        // obj0 obj1 seklinde kayit ettigim elemanlardaki kayitli indexleri tek tek alarak intListe yeniden ekliyorum cunku oyun yeniden basladiginda
+    //        // listeyi bellege kaydetmedigim icin 0 dan baslar 
+    //        // kayit ettigim indexleri icine koyduktan sonra ayni indexleri objelerin active ligini acmak icin kullanarak bitiriyorum 
+    //        int listCount = PlayerPrefs.GetInt("intListCount", 0);
+
+    //        for (int i = 0; i < listCount; i++)
+    //        {
+    //            var index = PlayerPrefs.GetInt("obj" + i);
+    //            intList.Add(index);
+    //            //Debug.Log(index);
+
+    //            var obj = labRoomListFalse[index];
+    //            obj.SetActive(true);
+
+    //        }
+    //    }
+    //}         
+
+    [Serializable] // normalde random atiyordum atilacak olan lab objesini ustteki yorum kodu burada sirayla actiriyorum
     public class LabRoomListPlayerPrefs
     {
         EndGameSectionController endGameSectionController;
         public List<GameObject> labRoomListFalse = new List<GameObject>();
         public List<int> intList = new List<int>();
+        private int currentIndex = 0;
+
         public void Init(EndGameSectionController endGameSectionController)
         {
             this.endGameSectionController = endGameSectionController;
+            // Oyunu kapatýp açtýðýmýzda mevcut indeksi geri yükleyelim
+            currentIndex = PlayerPrefs.GetInt("currentIndex", 0);
         }
 
-        public void ActivatingRandomLabStuff()
+        public void ActivatingSequentialLabStuff()
         {
-            int randomNumber = UnityEngine.Random.Range(0, labRoomListFalse.Count);
-            var obj = labRoomListFalse[randomNumber];
-            //Debug.Log(randomNumber); 
-            // burada listeden obj yi cikarmiyorum ayni objleri dondurebilir bir ara bak ????????
-            SaveActiveSelfTrue(randomNumber);
+            if (labRoomListFalse.Count == 0) return;
+
+            if (currentIndex >= labRoomListFalse.Count)
+            {
+                currentIndex = 0; // Dönüp baþa döneriz
+            }
+
+            var obj = labRoomListFalse[currentIndex];
+            SaveActiveSelfTrue(currentIndex);
             obj.SetActive(true);
+
+            currentIndex++;
+            PlayerPrefs.SetInt("currentIndex", currentIndex); // Güncel indeksi kaydedelim
         }
+
         public void SaveActiveSelfTrue(int objIndex)
         {
             intList.Add(objIndex);
-            // gelen indexi intListe ekliyorum daha sonra intListtte kac eleman varsa kayit edip for icinde count kadar dongu sagliyorum
-            //obj0 = 5 obj1 = 2 seklinde index degerlerini her engGameSectiona deyince kayit ediyorum
-
             PlayerPrefs.SetInt("intListCount", intList.Count);
             for (int i = 0; i < intList.Count; i++)
             {
-
                 PlayerPrefs.SetInt("obj" + i, intList[i]);
             }
         }
+
         public void GetActiveSelfTrue()
         {
-            // oyunu kapatip actigimda calisir sadece cunku DontDestroyOnLoad kullaniyorum 
-            // listCountu her eleman eklerken kayit ediyordum zaten bu liste sayisi dongunun kac kere calisacagini belirleyecek
-            // obj0 obj1 seklinde kayit ettigim elemanlardaki kayitli indexleri tek tek alarak intListe yeniden ekliyorum cunku oyun yeniden basladiginda
-            // listeyi bellege kaydetmedigim icin 0 dan baslar 
-            // kayit ettigim indexleri icine koyduktan sonra ayni indexleri objelerin active ligini acmak icin kullanarak bitiriyorum 
             int listCount = PlayerPrefs.GetInt("intListCount", 0);
-
             for (int i = 0; i < listCount; i++)
             {
                 var index = PlayerPrefs.GetInt("obj" + i);
                 intList.Add(index);
-                //Debug.Log(index);
-
                 var obj = labRoomListFalse[index];
                 obj.SetActive(true);
-
             }
         }
     }
