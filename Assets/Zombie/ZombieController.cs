@@ -35,6 +35,9 @@ public class ZombieController : MonoBehaviour
 
     GameObject bloodEffectObject;
     ParticleSystem BlodParticleSystem;
+    //GameObject antibodyEffectObject; // antibody effecti eklemeye calistim olmadi saldim
+    //ParticleSystem antibodyEffect;
+
 
     private void Start()
     {
@@ -49,6 +52,9 @@ public class ZombieController : MonoBehaviour
 
         bloodEffectObject = transform.Find("BloodEffect_1").gameObject;
         BlodParticleSystem = bloodEffectObject.GetComponent<ParticleSystem>();
+
+        //antibodyEffectObject = transform.Find("AntiBody").gameObject;
+        //antibodyEffect = antibodyEffectObject.GetComponentInChildren<ParticleSystem>();
     }
     private void Update()
     {
@@ -146,6 +152,7 @@ public class ZombieController : MonoBehaviour
         public GameObject antiBody;
         public float cureSliderValue = 1;
         public List<GameObject> antiBodyList = new List<GameObject>();
+
         public void Init(ZombieController zombieController)
         {
             this.zombieController = zombieController;
@@ -169,6 +176,8 @@ public class ZombieController : MonoBehaviour
             foreach (var item in antiBodyList)
             {
                 item.SetActive(true);
+                //zombieController.antibodyEffect.Play();
+
                 item.transform.DOJump(new Vector3(item.transform.position.x + UnityEngine.Random.Range(-1.5f, 1.5f), item.transform.position.y + 0.28f, item.transform.position.z + UnityEngine.Random.Range(-1.5f, 1.5f)), 2, 1, 1).OnComplete(() =>
                 {
                     EndGameSectionController.Instance.cureProgressModel.CureSliderIncrease(cureSliderValue);

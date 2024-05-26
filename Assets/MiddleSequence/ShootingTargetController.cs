@@ -28,6 +28,9 @@ public class ShootingTargetController : MonoBehaviour
     bool canShoot = false;
 
     bool sequenceCloseDone = false;
+
+    [SerializeField] GameObject hitObject;
+    ParticleSystem hitEffect;
     private void Start()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -35,6 +38,8 @@ public class ShootingTargetController : MonoBehaviour
 
         GetImage();
         GetTargetValue();
+
+        hitEffect = hitObject.GetComponent<ParticleSystem>();
     }
     private void Update()
     {
@@ -74,6 +79,7 @@ public class ShootingTargetController : MonoBehaviour
         //    playerController.middleSequenceModule.MiddleSequenceReverse();
         //    gameObject.GetComponentInParent<MiddleSequenceController>().gameObject.SetActive(false);
         //}
+        hitEffect.Play();
         gunWrapper.targetValue -= value;
 
         if (gunWrapper.targetValue < 0)
@@ -82,7 +88,7 @@ public class ShootingTargetController : MonoBehaviour
         }
         targetValueText.text = gunWrapper.targetValue.ToString("f0");
     }
-    public void CloseMiddleSequence() // bir takim sikintilar bulunmakta ??????????
+    public void CloseMiddleSequence() 
     {
         if (!sequenceCloseDone)
         {

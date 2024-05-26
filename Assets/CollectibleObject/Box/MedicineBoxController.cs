@@ -7,11 +7,12 @@ public class MedicineBoxController : MonoBehaviour
 {
     GameObject antibody;
     [SerializeField] float cureSliderValue = 1f;
+    ParticleSystem antibodyEffect;
     private void Start()
     {
         //antibody = GameObject.FindGameObjectWithTag("Antibody"); // bu kodu begenmedim kendi childi olan objeyi daha rahat sekilde bulabilmem lazim /// cozuldu
         antibody = transform.Find("AntiBody").gameObject;
-
+        antibodyEffect = gameObject.GetComponentInChildren<ParticleSystem>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +26,7 @@ public class MedicineBoxController : MonoBehaviour
     {
 
         EndGameSectionController.Instance.cureProgressModel.CureSliderIncrease(cureSliderValue);
+        antibodyEffect.Play();
 
         antibody.transform.DOJump(new Vector3(antibody.transform.position.x + UnityEngine.Random.Range(-1.5f, 1.5f), antibody.transform.position.y, antibody.transform.position.z + UnityEngine.Random.Range(-1.5f, 1.5f)), 2, 1, 1).OnComplete(() =>
         {
