@@ -31,10 +31,14 @@ public class ShootingTargetController : MonoBehaviour
 
     [SerializeField] GameObject hitObject;
     ParticleSystem hitEffect;
+
+    MiddleSequenceController middleSequenceController;
     private void Start()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
         playerController = playerObject.GetComponent<PlayerController>();
+
+        middleSequenceController = gameObject.GetComponentInParent<MiddleSequenceController>();
 
         GetImage();
         GetTargetValue();
@@ -99,7 +103,9 @@ public class ShootingTargetController : MonoBehaviour
                 sequenceCloseDone = true;
                 playerController.middleSequenceModule.ChangeWeapon(gunType);
                 playerController.middleSequenceModule.MiddleSequenceReverse();
-                gameObject.GetComponentInParent<MiddleSequenceController>().gameObject.SetActive(false);
+
+                middleSequenceController.SetFloorParent();
+                middleSequenceController.gameObject.SetActive(false);
             }
         }
     }

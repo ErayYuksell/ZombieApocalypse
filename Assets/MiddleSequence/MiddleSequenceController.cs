@@ -5,6 +5,7 @@ using UnityEngine;
 public class MiddleSequenceController : MonoBehaviour
 {
     bool zombiesInside;
+    [SerializeField] GameObject floorArt;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -34,6 +35,7 @@ public class MiddleSequenceController : MonoBehaviour
         {
             var playerController = other.GetComponent<PlayerController>();
             playerController.middleSequenceModule.MiddleSequenceReverse();
+
             gameObject.SetActive(false);
         }
     }
@@ -45,6 +47,17 @@ public class MiddleSequenceController : MonoBehaviour
         for (int i = 0; i < body.transform.childCount; i++)
         {
             body.transform.GetChild(i).GetComponent<ShootingTargetController>().SetCanShoot();
+        }
+    }
+
+    public void SetFloorParent() // mid sequence kapatildiktan sorna floor kismi ayri bir sekilde kalmasini saglar 
+    {
+        floorArt.transform.SetParent(null);
+
+        for (int i = 0; i < floorArt.transform.childCount; i++)
+        {
+            var child = floorArt.transform.GetChild(i).GetComponent<Animator>();
+            child.enabled = false;
         }
     }
 }

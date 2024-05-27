@@ -13,6 +13,7 @@ TagManager:
   - ShootingTarget
   - MiddleSequence
   - EndGameSection
+  - LabCamCollider
   layers:
   - Default
   - TransparentFX
