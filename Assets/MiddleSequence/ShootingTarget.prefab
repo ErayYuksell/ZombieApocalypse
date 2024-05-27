@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 0.5}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6777740633243490669
 CanvasRenderer:
@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f46a3fee864cceb4d84fda0f0c6f99e4, type: 2}
+  m_sharedMaterial: {fileID: -4877128216070511946, guid: f46a3fee864cceb4d84fda0f0c6f99e4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -169,7 +169,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 0.5}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7757154870003585116
 CanvasRenderer:
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7c51b40f1e3756943adb981946ec9a74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c777f8387dd64b94ea85799a04a79b47, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -253,10 +253,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.94093907, b: 0.70733666, a: 1}
-  m_Intensity: 7.02
-  m_Range: 10
+  m_Intensity: 5
+  m_Range: 20
   m_SpotAngle: 45
-  m_InnerSpotAngle: 21.80208
+  m_InnerSpotAngle: 4
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -404,13 +404,13 @@ MonoBehaviour:
   gunType: 0
   gunList:
   - gunType: 0
-    gunImage: {fileID: 21300000, guid: 3c9c135571a3c7149ac7f3b01fd342bc, type: 3}
+    gunImage: {fileID: 21300000, guid: d2291f3ebf62b1c47875e1f50d70a322, type: 3}
     targetValue: 11
   - gunType: 1
-    gunImage: {fileID: 21300000, guid: 7c51b40f1e3756943adb981946ec9a74, type: 3}
+    gunImage: {fileID: 21300000, guid: c777f8387dd64b94ea85799a04a79b47, type: 3}
     targetValue: 8
   - gunType: 2
-    gunImage: {fileID: 21300000, guid: 7b546fea4b55e7d49b9d89dca176c8bd, type: 3}
+    gunImage: {fileID: 21300000, guid: 19e7950df080b3947bd045fb4b389940, type: 3}
     targetValue: 13
   gunImage: {fileID: 6003392048204281747}
   targetValueText: {fileID: 6283120389937815695}
@@ -452,8 +452,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 7.34}
-  m_SizeDelta: {x: 2, y: 1}
+  m_AnchoredPosition: {x: 0, y: 8.35}
+  m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2097921592592589684
 Canvas:
