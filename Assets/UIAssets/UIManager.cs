@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI multipleText;
     [Space]
     [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI inGamelevelText;
     [SerializeField] TextMeshProUGUI antibodyCountText;
 
     private void Awake()
@@ -56,6 +57,7 @@ public class UIManager : MonoBehaviour
     public void StartInfo()
     {
         levelText.text = SceneManager.GetActiveScene().name;
+        inGamelevelText.text = levelText.text;
         antibodyCountText.text = GetAntibodyCount().ToString();
     }
     public void UpdateAntibodyText()
