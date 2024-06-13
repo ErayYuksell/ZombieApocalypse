@@ -15,9 +15,9 @@ public enum ButtonTypes
 public class IncrementsController : MonoBehaviour
 {
     public ButtonTypes buttonType;
-    float increaseStrength = 1;
-    float increaseRange = 9;
-    float increaseRate = 0.6f;
+    float increaseStrength = 0.1f;
+    float increaseRange = 0.9f;
+    float increaseRate = 0.05f;
 
     PlayerController playerController;
 
@@ -102,7 +102,7 @@ public class IncrementsController : MonoBehaviour
 
             //Debug.Log("Rate button clicked");
             var rate = PlayerPrefs.GetFloat("FireRate", 0.6f);
-            rate += increaseRate;
+            rate -= increaseRate;
             PlayerPrefs.SetFloat("FireRate", rate);
             playerController.fireModule.BasesWeaponValues();
 

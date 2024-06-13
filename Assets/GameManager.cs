@@ -48,6 +48,11 @@ public class GameManager : MonoBehaviour
     {
         var levelIndex = GetLevelIndex() + 1;
         SaveLevelIndex(levelIndex);
+
+        if (levelIndex > 10) // 10. leveli gectigimizde 10 level arasindan rastgele bir level yukle 
+        {
+            levelIndex = Random.Range(1, 10);
+        }
         LoadScene(levelIndex);
     }
     public void LoadScene(int value = 0)

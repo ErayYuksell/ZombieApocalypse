@@ -401,17 +401,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938ab65674b13a64c89e96c8e14a8014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunType: 0
+  gunType: 2
   gunList:
   - gunType: 0
     gunImage: {fileID: 21300000, guid: d2291f3ebf62b1c47875e1f50d70a322, type: 3}
-    targetValue: 11
+    targetValue: 9
   - gunType: 1
     gunImage: {fileID: 21300000, guid: c777f8387dd64b94ea85799a04a79b47, type: 3}
-    targetValue: 8
+    targetValue: 7
   - gunType: 2
     gunImage: {fileID: 21300000, guid: 19e7950df080b3947bd045fb4b389940, type: 3}
-    targetValue: 13
+    targetValue: 11
   gunImage: {fileID: 6003392048204281747}
   targetValueText: {fileID: 6283120389937815695}
   hitObject: {fileID: 7319309287938878887}

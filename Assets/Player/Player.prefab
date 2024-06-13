@@ -938,9 +938,9 @@ MonoBehaviour:
     xRightValue: 4
     playerSpeed: 4
   fireModule:
-    rate: 0.4
+    rate: 0.6
     range: 9
-    power: 1
+    strength: 1
     rateScale: 0.01
     rangeScale: 0.01
     powerScale: 0.01
@@ -962,6 +962,11 @@ MonoBehaviour:
     - {fileID: 3273765018365362611}
     - {fileID: 1985963261053157826}
     - {fileID: 3968268850483599148}
+    AKPower: 0.5
+    MP5Rate: 0.23
+    MP5Power: -0.5
+    ShotGunPower: 1
+    ShotGunRate: -1
 --- !u!114 &3458259612527028396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,6 +983,8 @@ MonoBehaviour:
   virtualCameras:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  transitionTime: 2.5
 --- !u!1 &2766588423484101148
 GameObject:
   m_ObjectHideFlags: 0

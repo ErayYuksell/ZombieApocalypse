@@ -95,10 +95,10 @@ public class PlayerController : MonoBehaviour
             switch (gateType)
             {
                 case GateType.Range:
-                    playerController.fireModule.SetFireRate(playerController.fireModule.rateScale * gateValue);
+                    playerController.fireModule.SetFireRange(playerController.fireModule.rangeScale * gateValue);
                     break;
                 case GateType.Rate:
-                    playerController.fireModule.SetFireRange(playerController.fireModule.rangeScale * gateValue);
+                    playerController.fireModule.SetFireRate(playerController.fireModule.rateScale * gateValue);
                     break;
                 case GateType.Strength:
                     playerController.fireModule.SetFireStrength(playerController.fireModule.powerScale * gateValue);
@@ -114,13 +114,13 @@ public class PlayerController : MonoBehaviour
     {
         PlayerController playerController;
 
-        [Range(0.1f, 1), SerializeField] float rate = 0.4f;
+        [Range(0.1f, 2), SerializeField] float rate = 0.4f;
         [Range(8, 20), SerializeField] float range = 15;
         [Range(0.5f, 2), SerializeField] float strength = 1;
         [Space]
-        public float rateScale;
-        public float rangeScale;
-        public float powerScale;
+        public float rateScale = 0.1f;
+        public float rangeScale = 0.1f;
+        public float powerScale = 0.1f;
         [Space]
         public GameObject objectPool;
         public Transform firePoint;
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
         }
         public void SetFireRate(float value)
         {
-            rate += value;
+            rate -= value;
         }
         public float GetFireRate()
         {
@@ -252,11 +252,11 @@ public class PlayerController : MonoBehaviour
         PlayerController playerController;
         public List<GameObject> weaponList = new List<GameObject>();
         [Space]
-        public float AKPower = 1;
-        public float MP5Rate = 0.5f;
-        public float MP5Power = 0.5f;
-        public float ShotGunPower = 1f;
-        public float ShotGunRate = 2f;
+        public float AKPower = 0.5f;
+        public float MP5Rate = 0.05f;
+        public float MP5Power = -0.1f;
+        public float ShotGunPower = 0.5f;
+        public float ShotGunRate = -1f;
 
         public void Init(PlayerController playerController)
         {

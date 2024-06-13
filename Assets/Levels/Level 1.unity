@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 746131643}
     m_Modifications:
+    - target: {fileID: 1825051308966020144, guid: b8a0bb4fcbe81194a8e55bb93a43cfcf, type: 3}
+      propertyPath: gateType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4490733986775727029, guid: b8a0bb4fcbe81194a8e55bb93a43cfcf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.9073057
@@ -2156,8 +2160,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.28402984, y: -0.34294367, z: 0.12744302, w: 0.8862703}
-  m_LocalPosition: {x: -5.2949142, y: 18.242376, z: 136.4656}
+  m_LocalRotation: {x: -0.2713605, y: 0.004905631, z: -0.0013831729, w: -0.96246433}
+  m_LocalPosition: {x: -0.794914, y: 11.911376, z: -11.154403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2466,6 +2470,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 746131643}
     m_Modifications:
+    - target: {fileID: 1825051308966020144, guid: b8a0bb4fcbe81194a8e55bb93a43cfcf, type: 3}
+      propertyPath: gateType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4490733986775727029, guid: b8a0bb4fcbe81194a8e55bb93a43cfcf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.79
@@ -3908,18 +3916,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1427784430056137320, guid: 2cfc766c7a71eec44bc86378db81ea24, type: 3}
-      propertyPath: gunList.Array.data[2].targetValue
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2183063306942906031, guid: 2cfc766c7a71eec44bc86378db81ea24, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 2183063306942906031, guid: 2cfc766c7a71eec44bc86378db81ea24, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -63.05
-      objectReference: {fileID: 0}
     - target: {fileID: 3963476946869629409, guid: 2cfc766c7a71eec44bc86378db81ea24, type: 3}
       propertyPath: m_Name
       value: MiddleSequence
@@ -3963,10 +3959,6 @@ PrefabInstance:
     - target: {fileID: 4410606206365382617, guid: 2cfc766c7a71eec44bc86378db81ea24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6718917099345583780, guid: 2cfc766c7a71eec44bc86378db81ea24, type: 3}
-      propertyPath: gunList.Array.data[2].targetValue
-      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 9061358581640850872, guid: 2cfc766c7a71eec44bc86378db81ea24, type: 3}
       propertyPath: m_Follow
@@ -4519,17 +4511,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 589094219501059646, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
-      propertyPath: fireModule.rate
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 589094219501059646, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
       propertyPath: fireModule.objectPool
       value: 
       objectReference: {fileID: 1073771176}
-    - target: {fileID: 589094219501059646, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
-      propertyPath: movementModule.playerSpeed
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 1140637350569654720, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4578,10 +4562,6 @@ PrefabInstance:
       propertyPath: primaryCamera
       value: 
       objectReference: {fileID: 1726959287}
-    - target: {fileID: 3458259612527028396, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
-      propertyPath: virtualCameras.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3458259612527028396, guid: 2233d81ee38fc464d9d151c7b4ac661a, type: 3}
       propertyPath: virtualCameras.Array.data[0]
       value: 
