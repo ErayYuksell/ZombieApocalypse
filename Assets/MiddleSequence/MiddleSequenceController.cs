@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +38,7 @@ public class MiddleSequenceController : MonoBehaviour
             playerController.middleSequenceModule.MiddleSequenceReverse();
 
             gameObject.SetActive(false);
+            DOTween.Kill(transform);
         }
     }
 

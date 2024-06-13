@@ -17,6 +17,7 @@ public class EndGameSectionController : MonoBehaviour
     public Image fillImage;
     [HideInInspector]
     public TextMeshProUGUI multipleText;
+
     private void Start()
     {
         fillImage = UIManager.Instance.fillImage;
@@ -49,9 +50,10 @@ public class EndGameSectionController : MonoBehaviour
             playerController.endSectionModule.PlayerEndSectionMovement();
 
             cureProgressModel.IncreaseCureBottleAmount();
+            //labRoomListPlayerPrefs.ClearConfiti();
         }
     }
-    
+
     //[Serializable]
     //public class LabRoomListPlayerPrefs
     //{
@@ -114,7 +116,7 @@ public class EndGameSectionController : MonoBehaviour
         public List<GameObject> labRoomListFalse = new List<GameObject>();
         public List<int> intList = new List<int>();
         private int currentIndex = 0;
-
+       
         public void Init(EndGameSectionController endGameSectionController)
         {
             this.endGameSectionController = endGameSectionController;
@@ -134,6 +136,7 @@ public class EndGameSectionController : MonoBehaviour
             var obj = labRoomListFalse[currentIndex];
             SaveActiveSelfTrue(currentIndex);
             obj.SetActive(true);
+            endGameSectionController.StartCoroutine(PlayConfitiEffect(obj));
 
             currentIndex++;
             PlayerPrefs.SetInt("currentIndex", currentIndex); // Güncel indeksi kaydedelim
@@ -159,6 +162,12 @@ public class EndGameSectionController : MonoBehaviour
                 var obj = labRoomListFalse[index];
                 obj.SetActive(true);
             }
+        }
+
+        public IEnumerator PlayConfitiEffect(GameObject obj)
+        {
+            yield return new WaitForSeconds(5);
+            obj.GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 

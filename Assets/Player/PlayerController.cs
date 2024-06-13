@@ -210,6 +210,8 @@ public class PlayerController : MonoBehaviour
                 playerController.movementModule.canMove = true;
                 playerController.fireModule.canFire = true;
                 playerController.StartCoroutine(playerController.fireModule.SetFire());
+
+                DOTween.Kill(playerController.transform); // yapmak istedigimi tam olarak yapmadi muhtemelemen
             });
         }
     }

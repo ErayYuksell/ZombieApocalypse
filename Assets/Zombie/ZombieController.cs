@@ -74,12 +74,16 @@ public class ZombieController : MonoBehaviour
     }
     public void ChooseZombieDyingAnim()
     {
+        DOTween.Kill(transform); // animasyona girdiginde hareketi kessin 
+
         var zombieClass = GetZombieClass(zombieType);
         animator.Play(zombieClass.dyingclip.name);
         antiBodyDropModule.GetAntiBody();
     }
     public void ChooseZombieAttackingAnim()
     {
+        DOTween.Kill(transform);
+
         var zombieClass = GetZombieClass(zombieType);
         animator.Play(zombieClass.attackedClip.name);
     }
@@ -113,7 +117,6 @@ public class ZombieController : MonoBehaviour
         {
             return;
         }
-
         if (transform.position.x > 0)
         {
             transform.DOMoveX(transform.position.x - UnityEngine.Random.Range(3, 5), 3);
